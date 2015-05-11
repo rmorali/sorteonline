@@ -5,5 +5,28 @@
 <% end %>
 </table>
 
+<% @boloes.each do |bolao| %>
+  <table>
+  <tr><th>Bolão: <%= bolao.nome %></th></tr>
+  <tr><th>Dezenas:</th><th>Soma</th><th>Par/Impar</th><th> + sorteadas</th><th> -sorteadas</th><th>Col.cheia</th><th>Col.vazia</th><th>Lin.cheia</th><th>Lin.vazia</th><th>Pontos:</th></tr>
+  <% bolao.palpites.each do |palpite| %>
+    <tr>
+    <td><%= palpite.dezenas %></td>
+    <td><%= palpite.analisa_soma %></td>
+    <td><%= palpite.analisa_pares_impares %></td>
+    <td><%= palpite.analisa_mais_sorteados %></td>
+    <td><%= palpite.analisa_menos_sorteados %></td>
+    <td><%= palpite.analisa_colunas_cheias %></td>
+    <td><%= palpite.analisa_colunas_vazias %></td>
+    <td><%= palpite.analisa_linhas_cheias %></td>
+    <td><%= palpite.analisa_linhas_vazias %></td>
+    <td><%= palpite.pontos %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
+
+
+
 
 

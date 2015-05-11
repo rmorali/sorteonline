@@ -2,11 +2,11 @@ class BolaosController < ApplicationController
 
   def index
     @bolao = Bolao.new
+    @boloes = Bolao.all
   end
 
   def create
     @bolao = Bolao.create( bolao_params )
-    #raise @bolao.inspect
     redirect_to :back
   end
 
