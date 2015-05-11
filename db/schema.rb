@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511194210) do
+ActiveRecord::Schema.define(version: 20150511200507) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 20150511194210) do
     t.boolean "teste_pares_impares"
     t.boolean "teste_mais_sorteados"
     t.boolean "teste_menos_sorteados"
+    t.boolean "teste_colunas_cheias"
+    t.boolean "teste_colunas_vazias"
   end
 
 end

@@ -25,6 +25,8 @@ class Palpite < ActiveRecord::Base
     self.analisa_pares_impares
     self.analisa_mais_sorteados
     self.analisa_menos_sorteados
+    self.analisa_colunas_cheias
+    self.analisa_colunas_vazias
   end
 
   def analisa_soma
@@ -69,6 +71,31 @@ class Palpite < ActiveRecord::Base
       self.save
     end
     "#{qtd_menos_sorteados} - #{self.teste_menos_sorteados}"
+  end
+
+  def analisa_colunas_cheias
+    total_colunas_cheias = 0
+    self.parametros.colunas.each do |coluna|
+      total_colunas_cheias += 1 if (coluna - self.dezenas_do_palpite).length == 0
+    end
+    if total_colunas_cheias >= self.parametros.min_colunas_cheias && total_colunas_cheias <= self.parametros.max_colunas_cheias
+      self.teste_colunas_cheias = true
+      self.save
+    end
+    "#{total_colunas_cheias} - #{self.teste_colunas_cheias}"
+  end
+
+  def analisa_colunas_vazias
+    total_colunas_vazias = 0
+    self.parametros.colunas.each do |coluna|
+      vazio = coluna.length
+      total_colunas_vazias += 1 if (coluna - self.dezenas_do_palpite).length == vazio
+    end
+    if total_colunas_vazias >= self.parametros.min_colunas_vazias && total_colunas_vazias <= self.parametros.max_colunas_vazias
+      self.teste_colunas_vazias = true
+      self.save
+    end
+    "#{total_colunas_vazias} - #{self.teste_colunas_vazias}"
   end
 
 end
