@@ -4,6 +4,7 @@ class Loteria < ActiveRecord::Base
   serialize :colunas_da_esquerda
   serialize :colunas_da_direita
   serialize :menos_sorteados
+  serialize :mais_sorteados
   serialize :multiplos
   belongs_to :bolao
 

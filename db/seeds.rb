@@ -13,14 +13,14 @@ quina = Loteria.create(
     qtd_max_dezenas: 7, #OK
     min_soma: 42, # OK
     max_soma: 368, # OK
-    max_pares: 4,
-    min_pares: 1,
-    max_impares: 4, 
-    min_impares: 1,
-    mais_sorteados: [1,2,3,4,5],
-    min_mais_sorteados: 1,
-    max_mais_sorteados: 3,
-    max_menos_sorteados: 0,
+    max_pares: 4, # OK
+    min_pares: 1, # OK
+    max_impares: 4, # OK
+    min_impares: 1, # OK
+    min_mais_sorteados: 1, #OK
+    max_mais_sorteados: 3, #OK
+    min_menos_sorteados: 1,
+    max_menos_sorteados: 3,
     min_colunas_cheias: 0,
     max_colunas_cheias: 0,
     min_linhas_cheias: 0,
@@ -42,6 +42,7 @@ quina = Loteria.create(
     colunas: [1,11,21,31],
     colunas_da_esquerda: [1,11,21,31],
     colunas_da_direita: [6,16,26,36],
+    mais_sorteados: [1,2,3,4,5], #OK
     menos_sorteados: [6,7,8,9,0],
     multiplos: [3,4,5,6,7,8,9,10,11]
 )

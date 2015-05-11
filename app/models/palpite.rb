@@ -23,6 +23,8 @@ class Palpite < ActiveRecord::Base
   def analises
     self.analisa_soma
     self.analisa_pares_impares
+    self.analisa_mais_sorteados
+    self.analisa_menos_sorteados
   end
 
   def analisa_soma
@@ -49,6 +51,24 @@ class Palpite < ActiveRecord::Base
       self.save
     end
     "#{total_pares} / #{total_impares} - #{self.teste_pares_impares}"
+  end
+
+  def analisa_mais_sorteados
+    qtd_mais_sorteados =  qtd_dezenas_do_palpite - (self.dezenas_do_palpite - self.parametros.mais_sorteados).length
+    if qtd_mais_sorteados >= self.parametros.min_mais_sorteados && qtd_mais_sorteados <= self.parametros.max_mais_sorteados
+      self.teste_mais_sorteados = true
+      self.save
+    end
+    "#{qtd_mais_sorteados} - #{self.teste_mais_sorteados}"
+  end
+
+  def analisa_menos_sorteados
+    qtd_menos_sorteados =  qtd_dezenas_do_palpite - (self.dezenas_do_palpite - self.parametros.menos_sorteados).length
+    if qtd_menos_sorteados >= self.parametros.min_menos_sorteados && qtd_menos_sorteados <= self.parametros.max_menos_sorteados
+      self.teste_menos_sorteados = true
+      self.save
+    end
+    "#{qtd_menos_sorteados} - #{self.teste_menos_sorteados}"
   end
 
 end

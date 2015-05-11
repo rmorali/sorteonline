@@ -11,10 +11,9 @@ class CreateLoteria < ActiveRecord::Migration
       t.integer :min_pares
       t.integer :max_impares
       t.integer :min_impares
-      t.integer :mais_sorteados
       t.integer :min_mais_sorteados
       t.integer :max_mais_sorteados
-      t.integer :min_mais_sorteados
+      t.integer :min_menos_sorteados
       t.integer :max_menos_sorteados
       t.integer :min_colunas_cheias
       t.integer :max_colunas_cheias
@@ -38,6 +37,7 @@ class CreateLoteria < ActiveRecord::Migration
       t.text :colunas_da_esquerda
       t.text :colunas_da_direita
       t.text :menos_sorteados
+      t.text :mais_sorteados
       t.text :multiplos
     end
   end

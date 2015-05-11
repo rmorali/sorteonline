@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511190137) do
+ActiveRecord::Schema.define(version: 20150511194210) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20150511190137) do
     t.integer "min_pares"
     t.integer "max_impares"
     t.integer "min_impares"
-    t.integer "mais_sorteados"
     t.integer "min_mais_sorteados"
     t.integer "max_mais_sorteados"
+    t.integer "min_menos_sorteados"
     t.integer "max_menos_sorteados"
     t.integer "min_colunas_cheias"
     t.integer "max_colunas_cheias"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150511190137) do
     t.text    "colunas_da_esquerda"
     t.text    "colunas_da_direita"
     t.text    "menos_sorteados"
+    t.text    "mais_sorteados"
     t.text    "multiplos"
   end
 
@@ -66,6 +67,8 @@ ActiveRecord::Schema.define(version: 20150511190137) do
     t.integer "pontos"
     t.boolean "teste_soma"
     t.boolean "teste_pares_impares"
+    t.boolean "teste_mais_sorteados"
+    t.boolean "teste_menos_sorteados"
   end
 
 end
