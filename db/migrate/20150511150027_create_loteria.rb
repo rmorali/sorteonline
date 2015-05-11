@@ -34,8 +34,6 @@ class CreateLoteria < ActiveRecord::Migration
       t.integer :max_sequencia
       t.text :linhas
       t.text :colunas
-      t.text :colunas_da_esquerda
-      t.text :colunas_da_direita
       t.text :menos_sorteados
       t.text :mais_sorteados
       t.text :multiplos
