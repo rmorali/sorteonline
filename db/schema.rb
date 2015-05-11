@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511154926) do
+ActiveRecord::Schema.define(version: 20150511184533) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150511154926) do
     t.integer "bolao_id"
     t.string  "dezenas"
     t.integer "pontos"
+    t.boolean "teste_soma"
   end
 
 end

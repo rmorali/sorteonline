@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 quina = Loteria.create( 
-    nome: 'Quina',
-    sigla: 'QN',
-    qtd_min_dezenas: 5,
-    qtd_max_dezenas: 7,
-    min_soma: 42,
-    max_soma: 368,
+    nome: 'Quina', #OK
+    sigla: 'QN', #OK
+    qtd_min_dezenas: 5, #OK
+    qtd_max_dezenas: 7, #OK
+    min_soma: 42, # OK
+    max_soma: 368, # OK
     max_pares: 4,
     min_pares: 1,
     max_impares: 4, 
