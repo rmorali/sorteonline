@@ -23,12 +23,17 @@ gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem "therubyracer", platforms: :ruby
+gem "paperclip", "~> 4.2"
+gem 'mysql'
+gem 'simple_form'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
 gem 'autotest-rails',            group: [:development, :test]
 gem 'factory_girl_rails',        group: [:development, :test]
+gem 'rspec-rails',               group: [:development, :test]
+gem 'shoulda',                   group: [:development, :test]
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
