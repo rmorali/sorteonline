@@ -29,25 +29,9 @@ class Bolao < ActiveRecord::Base
   end
 
   def importa_palpites
-    linhas = []
     self.arquivo_contents.each_line do |arquivo|
-      linhas << arquivo.chomp
+      Palpite.create(:bolao => self, :dezenas => arquivo.delete("\n"))
     end
-    linhas.each do |linha|
-      palpite = linha.split(' ', self.parametros.qtd_max_dezenas + 2)
-      2.times { palpite.delete_at(0) }
-      Palpite.create(:bolao => self, :dezenas => palpite)
-    end
-
-  end
-
-  def numeros
-    columns = []
-    self.palpite.split(' ', 25).each do |palpite|
-      columns << palpite.to_i
-    end   
-    2.times { columns.delete_at(0) } 
-    columns
   end
 
 end
