@@ -17,7 +17,7 @@ class Bolao < ActiveRecord::Base
   end
 
   def nome
-    nome = self.arquivo_file_name.remove!(".txt")
+    nome = self.arquivo_file_name.remove(".txt")
   end
 
   def tipo
@@ -33,14 +33,12 @@ class Bolao < ActiveRecord::Base
     self.arquivo_contents.each_line do |arquivo|
       linhas << arquivo.chomp
     end
-    palpites = []
-    linhas.split(' ', self.parametros).each do |linha|
-      palpites << linha.to_i
-    end
-    2.times { palpites.delete_at(0) }
-    palpites.each do |palpite|
+    linhas.each do |linha|
+      palpite = linha.split(' ', self.parametros.qtd_max_dezenas + 2)
+      2.times { palpite.delete_at(0) }
       Palpite.create(:bolao => self, :dezenas => palpite)
     end
+
   end
 
   def numeros

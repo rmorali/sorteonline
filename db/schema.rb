@@ -61,7 +61,8 @@ ActiveRecord::Schema.define(version: 20150511154926) do
   end
 
   create_table "palpites", force: :cascade do |t|
-    t.text    "dezenas"
+    t.integer "bolao_id"
+    t.string  "dezenas"
     t.integer "pontos"
   end
 

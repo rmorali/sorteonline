@@ -5,12 +5,13 @@ class BolaosController < ApplicationController
   end
 
   def create
-    @bolao = Bolao.create(params[:bolao])
+    @bolao = Bolao.create( bolao_params )
+    #raise @bolao.inspect
     redirect_to :back
   end
 
   def edit
-    @jogo = Quina.first
+
   end
 
   def update
@@ -21,6 +22,12 @@ class BolaosController < ApplicationController
     Quina.destroy_all
     AnaliseQuina.destroy_all
     redirect_to :quinas
+  end
+
+private
+
+  def bolao_params
+    params.require(:bolao).permit!
   end
 
 end
