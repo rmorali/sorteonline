@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511150027) do
+ActiveRecord::Schema.define(version: 20150511154926) do
+
+  create_table "bolaos", force: :cascade do |t|
+    t.string   "arquivo_file_name"
+    t.string   "arquivo_content_type"
+    t.integer  "arquivo_file_size"
+    t.datetime "arquivo_updated_at"
+  end
 
   create_table "loteria", force: :cascade do |t|
     t.string  "nome"
@@ -51,6 +58,11 @@ ActiveRecord::Schema.define(version: 20150511150027) do
     t.text    "colunas_da_direita"
     t.text    "menos_sorteados"
     t.text    "multiplos"
+  end
+
+  create_table "palpites", force: :cascade do |t|
+    t.text    "dezenas"
+    t.integer "pontos"
   end
 
 end

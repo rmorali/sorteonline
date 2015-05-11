@@ -5,4 +5,8 @@ class Loteria < ActiveRecord::Base
   serialize :colunas_da_direita
   serialize :menos_sorteados
   serialize :multiplos
+
+  self.parametros(tipo)
+    loteria = find_by sigla: tipo
+  end
 end

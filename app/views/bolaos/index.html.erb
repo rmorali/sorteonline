@@ -1,0 +1,9 @@
+<table>
+<%= simple_form_for @bolao, :html => { :multipart => true } do |f| %>
+  <tr><th><%= f.input :arquivo, as: :file %></th>
+  <th><%= f.submit 'Upload' %></th></tr>
+<% end %>
+</table>
+
+
+
