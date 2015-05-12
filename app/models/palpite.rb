@@ -168,7 +168,7 @@ class Palpite < ActiveRecord::Base
 
   def analisa_numeros_consecutivos
     a = self.dezenas_do_palpite.sort
-    prev = a[0]
+    prev = a[1]
     filtro = a.slice_before { |cur|
     prev, prev2 = cur, prev  # one step further
     prev2 + 1 != prev        # two ago != one ago ? --> new slice
