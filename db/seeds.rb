@@ -11,33 +11,33 @@ quina = Loteria.create(
     sigla: 'QN', #OK
     qtd_min_dezenas: 5, #OK
     qtd_max_dezenas: 7, #OK
-    min_soma: 42, # OK
-    max_soma: 368, # OK
-    max_pares: 4, # OK
+    min_soma: 92, # OK
+    max_soma: 310, # OK
+    max_pares: 6, # OK
     min_pares: 1, # OK
-    max_impares: 4, # OK
+    max_impares: 6, # OK
     min_impares: 1, # OK
-    min_mais_sorteados: 1, #OK
-    max_mais_sorteados: 3, #OK
-    min_menos_sorteados: 1, #OK
-    max_menos_sorteados: 3, #OK
+    min_mais_sorteados: 0, #OK
+    max_mais_sorteados: 2, #OK
+    min_menos_sorteados: 0, #OK
+    max_menos_sorteados: 7, #OK
     min_colunas_cheias: 0, #OK
     max_colunas_cheias: 0, #OK
     min_linhas_cheias: 0, #OK
     max_linhas_cheias: 0, #OK
     min_colunas_vazias: 0, #OK
-    max_colunas_vazias: 5, #OK
+    max_colunas_vazias: 7, #OK
     min_linhas_vazias: 0, #OK
     max_linhas_vazias: 5, #OK
     min_fibonacci: 0, #OK
-    max_fibonacci: 5, #OK
+    max_fibonacci: 2, #OK
     min_numeros_primos: 0, #OK
-    max_numeros_primos: 5, #OK
+    max_numeros_primos: 3, #OK
     min_coluna_esquerda_direita: 0,
     min_digitos: 0,
     max_digitos: 0,
     max_numeros_consecutivos: 2, #OK
-    min_quadrantes: 3,
+    min_quadrantes: 2, #OK
     linhas: [[1,2,3,4,5,6,7,8,9,10],
              [11,12,13,14,15,16,17,18,19,20],
              [21,22,23,24,25,26,27,28,29,30],
@@ -60,8 +60,8 @@ quina = Loteria.create(
                  [6,7,8,9,10,16,17,18,19,20,26,27,28,29,30,36,37,38,39,40],
                  [41,42,43,44,45,51,52,53,54,55,61,62,63,64,65,71,72,73,74,75],
                  [46,47,48,49,50,56,57,58,59,60,66,67,68,69,70,76,77,78,79,80]],                     
-    mais_sorteados: [1,2,3,4,5], #OK
-    menos_sorteados: [6,7,8,9,0], #OK
+    mais_sorteados: [39,4,52,49,53,16,44,40,42,10], #OK
+    menos_sorteados: [17,35,67,23,47,6,24,65,3,20], #OK
     fibonacci: [1,2,3,5,8,13,21,34,55], #OK
     numeros_primos: [2,3,5,7,11,13,17,19,23,29,31,41,43,47,53,59,61,67,71,73,79], #OK
     multiplos: [3,4,5,6,7,8,9,10,11]
