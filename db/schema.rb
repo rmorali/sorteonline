@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512003323) do
+ActiveRecord::Schema.define(version: 20150512030246) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
@@ -51,8 +51,10 @@ ActiveRecord::Schema.define(version: 20150512003323) do
     t.integer "max_numeros_primos"
     t.integer "min_numeros_primos"
     t.integer "max_numeros_consecutivos"
+    t.integer "min_quadrantes"
     t.text    "linhas"
     t.text    "colunas"
+    t.text    "quadrantes"
     t.string  "menos_sorteados"
     t.string  "mais_sorteados"
     t.string  "multiplos"
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150512003323) do
     t.boolean "teste_fibonacci"
     t.boolean "teste_numeros_primos"
     t.boolean "teste_numeros_consecutivos"
+    t.boolean "teste_quadrantes"
   end
 
 end

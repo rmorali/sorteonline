@@ -32,6 +32,7 @@ class Palpite < ActiveRecord::Base
     self.analisa_fibonacci
     self.analisa_numeros_primos
     self.analisa_numeros_consecutivos
+    self.analisa_quadrantes
   end
 
   def analisa_soma
@@ -158,6 +159,19 @@ class Palpite < ActiveRecord::Base
       self.save
      "#{self.parametros.max_numeros_consecutivos} - #{self.teste_numeros_consecutivos}"
     end
+  end
+
+  def analisa_quadrantes
+    total_quadrantes_usados = 0
+    self.parametros.quadrantes.each do |quadrante|
+      vazio = quadrante.length
+      total_quadrantes_usados += 1 if (quadrante - self.dezenas_do_palpite).length != vazio 
+    end
+    if total_quadrantes_usados >= self.parametros.min_quadrantes
+      self.teste_quadrantes = true
+      self.save
+    end
+    "#{total_quadrantes_usados} - #{self.teste_quadrantes}"
   end
 
 

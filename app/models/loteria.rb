@@ -8,6 +8,7 @@ class Loteria < ActiveRecord::Base
   serialize :multiplos
   serialize :fibonacci
   serialize :numeros_primos
+  serialize :quadrantes
   belongs_to :bolao
 
   def self.parametros(tipo)

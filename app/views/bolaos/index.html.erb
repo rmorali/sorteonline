@@ -8,7 +8,7 @@
 <% @boloes.each do |bolao| %>
   <table>
   <tr><th>Bolão: <%= bolao.nome %></th></tr>
-  <tr><th>Dezenas:</th><th>Soma</th><th>Par/Impar</th><th> + sorteadas</th><th> -sorteadas</th><th>Col.cheia</th><th>Col.vazia</th><th>Lin.cheia</th><th>Lin.vazia</th><th>Seq.Fibonacci</th><th>N.primos</th><th>N.consecutivos</th><th>Pontos:</th></tr>
+  <tr><th>Dezenas:</th><th>Soma</th><th>Par/Impar</th><th> + sorteadas</th><th> -sorteadas</th><th>Col.cheia</th><th>Col.vazia</th><th>Lin.cheia</th><th>Lin.vazia</th><th>Seq.Fibonacci</th><th>N.primos</th><th>N.consecutivos</th><th>Quadrantes</th><th>Pontos:</th></tr>
   <% bolao.palpites.each do |palpite| %>
     <tr>
     <td><%= palpite.dezenas %></td>
@@ -23,6 +23,7 @@
     <td><%= palpite.analisa_fibonacci %></td>
     <td><%= palpite.analisa_numeros_primos %></td>
     <td><%= palpite.analisa_numeros_consecutivos %></td>
+    <td><%= palpite.analisa_quadrantes %></td>
     <td><%= palpite.pontos %></td>
     </tr>
   <% end %>
