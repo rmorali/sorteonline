@@ -31,6 +31,7 @@ class Palpite < ActiveRecord::Base
     self.analisa_linhas_vazias
     self.analisa_fibonacci
     self.analisa_numeros_primos
+    self.analisa_numeros_consecutivos
   end
 
   def analisa_soma
@@ -143,6 +144,20 @@ class Palpite < ActiveRecord::Base
       self.save
     end
     "#{qtd_numeros_primos} - #{self.teste_numeros_primos}"
+  end
+
+  def analisa_numeros_consecutivos
+    a = self.dezenas_do_palpite.sort
+    prev = a[0]
+    filtro = a.slice_before { |cur|
+    prev, prev2 = cur, prev  # one step further
+    prev2 + 1 != prev        # two ago != one ago ? --> new slice
+  }.to_a
+    if filtro.any? { |x| x.length >= self.parametros.max_numeros_consecutivos }
+      self.teste_numeros_consecutivos = true
+      self.save
+     "#{self.parametros.max_numeros_consecutivos} - #{self.teste_numeros_consecutivos}"
+    end
   end
 
 

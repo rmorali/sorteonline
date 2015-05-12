@@ -2,7 +2,7 @@ class BolaosController < ApplicationController
 
   def index
     @bolao = Bolao.new
-    @boloes = Bolao.all
+    @boloes = Bolao.all.reverse
   end
 
   def create
