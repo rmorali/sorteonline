@@ -8,7 +8,7 @@ class Palpite < ActiveRecord::Base
     self.dezenas.split(' ', self.parametros.qtd_max_dezenas + 2).each do |dezena|
       numeros << dezena.to_i
     end
-    numeros.delete(0)
+    2.times { numeros.delete_at(0) }
     numeros
   end
 
