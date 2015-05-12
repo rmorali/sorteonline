@@ -2,9 +2,11 @@
 <%= simple_form_for @bolao, :html => { :multipart => true } do |f| %>
   <tr><th><%= f.input :arquivo, as: :file %></th>
   <th><%= f.submit 'Upload' %></th>
-  <th><a href = "/zera_bd">Zerar o BD</a></th></tr>
+  <th><a href = "/zera_bd">Zerar o BD</a><br><%= "Modo debug" if @debug_mode == true %></th></tr>
 <% end %>
 </table>
+
+<% if @debug_mode == true %>
 
 <% @boloes.each do |bolao| %>
   <table>
@@ -31,7 +33,32 @@
   </table>
 <% end %>
 
+<% else %>
 
+<% @boloes.each do |bolao| %>
+  <table>
+  <tr><th>Bolão: <%= bolao.nome %> - Relevância: <%= bolao.relevancia %> %</th></tr>
+  <tr><th>Dezenas:</th><th>Soma</th><th>Par/Impar</th><th> + sorteadas</th><th> -sorteadas</th><th>Col.cheia</th><th>Col.vazia</th><th>Lin.cheia</th><th>Lin.vazia</th><th>Seq.Fibonacci</th><th>N.primos</th><th>N.consecutivos</th><th>Quadrantes</th><th>Pontos:</th></tr>
+  <% bolao.palpites.each do |palpite| %>
+    <tr>
+    <td><%= palpite.dezenas %></td>
+    <td><%= palpite.teste_soma %></td>
+    <td><%= palpite.teste_pares_impares %></td>
+    <td><%= palpite.teste_mais_sorteados %></td>
+    <td><%= palpite.teste_menos_sorteados %></td>
+    <td><%= palpite.teste_colunas_cheias %></td>
+    <td><%= palpite.teste_colunas_vazias %></td>
+    <td><%= palpite.teste_linhas_cheias %></td>
+    <td><%= palpite.teste_linhas_vazias %></td>
+    <td><%= palpite.teste_fibonacci %></td>
+    <td><%= palpite.teste_numeros_primos %></td>
+    <td><%= palpite.teste_numeros_consecutivos %></td>
+    <td><%= palpite.teste_quadrantes %></td>
+    <td><%= palpite.pontos %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
 
-
+<% end %>
 
