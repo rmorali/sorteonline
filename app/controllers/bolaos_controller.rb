@@ -19,9 +19,9 @@ class BolaosController < ApplicationController
   end
 
   def zera
-    Quina.destroy_all
-    AnaliseQuina.destroy_all
-    redirect_to :quinas
+    Bolao.destroy_all
+    Palpite.destroy_all
+    redirect_to :bolaos
   end
 
 private

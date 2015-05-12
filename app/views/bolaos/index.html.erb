@@ -1,7 +1,8 @@
 <table>
 <%= simple_form_for @bolao, :html => { :multipart => true } do |f| %>
   <tr><th><%= f.input :arquivo, as: :file %></th>
-  <th><%= f.submit 'Upload' %></th></tr>
+  <th><%= f.submit 'Upload' %></th>
+  <th><a href = "/zera_bd">Zerar o BD</a></th></tr>
 <% end %>
 </table>
 
