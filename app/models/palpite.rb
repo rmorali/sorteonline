@@ -33,6 +33,7 @@ class Palpite < ActiveRecord::Base
     self.analisa_numeros_primos
     self.analisa_numeros_consecutivos
     self.analisa_quadrantes
+    self.analisa_multiplos
     self.analisa_pontuacao
   end
 
@@ -50,7 +51,8 @@ class Palpite < ActiveRecord::Base
     total += 1 if teste_numeros_primos?
     total += 1 if teste_numeros_consecutivos?
     total += 1 if teste_quadrantes?
-    self.pontos = (total * 100) / 12
+    total += 1 if teste_multiplos?
+    self.pontos = (total * 100) / 13
     self.save
   end
 
@@ -193,6 +195,31 @@ class Palpite < ActiveRecord::Base
       self.save
     end
     "#{total_quadrantes_usados} - #{self.teste_quadrantes}"
+  end
+
+  def multiplos_de(numero)
+    mult = []
+    qtd = (self.parametros.qtd_dezenas / numero + 1).to_i
+    i = 1
+    until i == qtd
+      mult << numero * i
+      i += 1 
+    end
+    mult
+  end
+
+  def analisa_multiplos
+    acusa_multiplo = 0
+    self.parametros.multiplos.each do |m|
+      qtd_numeros_multiplos =  self.qtd_dezenas_do_palpite - ( self.dezenas_do_palpite - self.multiplos_de(m) ).length
+      acusa_multiplo = m if qtd_numeros_multiplos > self.parametros.max_multiplos
+    end
+      if acusa_multiplo == 0
+        self.teste_multiplos = true
+        self.save
+      else
+        "+ que #{self.parametros.max_multiplos} * #{acusa_multiplo}" 
+      end       
   end
 
 

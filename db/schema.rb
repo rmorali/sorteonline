@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512030246) do
+ActiveRecord::Schema.define(version: 20150512223113) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150512030246) do
   create_table "loteria", force: :cascade do |t|
     t.string  "nome"
     t.string  "sigla"
+    t.integer "qtd_dezenas"
     t.integer "qtd_min_dezenas"
     t.integer "qtd_max_dezenas"
     t.integer "min_soma"
@@ -43,7 +44,6 @@ ActiveRecord::Schema.define(version: 20150512030246) do
     t.integer "max_colunas_vazias"
     t.integer "min_linhas_vazias"
     t.integer "max_linhas_vazias"
-    t.integer "min_coluna_esquerda_direita"
     t.integer "min_digitos"
     t.integer "max_digitos"
     t.integer "max_fibonacci"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150512030246) do
     t.integer "min_numeros_primos"
     t.integer "max_numeros_consecutivos"
     t.integer "min_quadrantes"
+    t.integer "max_multiplos"
     t.text    "linhas"
     t.text    "colunas"
     t.text    "quadrantes"
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150512030246) do
     t.boolean "teste_numeros_primos"
     t.boolean "teste_numeros_consecutivos"
     t.boolean "teste_quadrantes"
+    t.boolean "teste_multiplos"
   end
 
 end

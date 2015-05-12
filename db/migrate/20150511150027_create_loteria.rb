@@ -3,6 +3,7 @@ class CreateLoteria < ActiveRecord::Migration
     create_table :loteria do |t|
       t.string :nome
       t.string :sigla
+      t.integer :qtd_dezenas
       t.integer :qtd_min_dezenas
       t.integer :qtd_max_dezenas
       t.integer :min_soma
@@ -23,7 +24,6 @@ class CreateLoteria < ActiveRecord::Migration
       t.integer :max_colunas_vazias
       t.integer :min_linhas_vazias
       t.integer :max_linhas_vazias
-      t.integer :min_coluna_esquerda_direita
       t.integer :min_digitos
       t.integer :max_digitos
       t.integer :max_fibonacci
@@ -34,6 +34,7 @@ class CreateLoteria < ActiveRecord::Migration
       t.integer :min_numeros_primos
       t.integer :max_numeros_consecutivos
       t.integer :min_quadrantes
+      t.integer :max_multiplos
       t.text :linhas
       t.text :colunas
       t.text :quadrantes

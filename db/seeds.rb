@@ -7,37 +7,38 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 quina = Loteria.create( 
-    nome: 'Quina', #OK
-    sigla: 'QN', #OK
-    qtd_min_dezenas: 5, #OK
-    qtd_max_dezenas: 7, #OK
-    min_soma: 92, # OK
-    max_soma: 310, # OK
-    max_pares: 6, # OK
-    min_pares: 1, # OK
-    max_impares: 6, # OK
-    min_impares: 1, # OK
-    min_mais_sorteados: 0, #OK
-    max_mais_sorteados: 2, #OK
-    min_menos_sorteados: 0, #OK
-    max_menos_sorteados: 7, #OK
-    min_colunas_cheias: 0, #OK
-    max_colunas_cheias: 0, #OK
-    min_linhas_cheias: 0, #OK
-    max_linhas_cheias: 0, #OK
-    min_colunas_vazias: 0, #OK
-    max_colunas_vazias: 7, #OK
-    min_linhas_vazias: 0, #OK
-    max_linhas_vazias: 5, #OK
-    min_fibonacci: 0, #OK
-    max_fibonacci: 2, #OK
-    min_numeros_primos: 0, #OK
-    max_numeros_primos: 3, #OK
-    min_coluna_esquerda_direita: 0,
+    nome: 'Quina', 
+    sigla: 'QN', 
+    qtd_dezenas: 80,
+    qtd_min_dezenas: 5, 
+    qtd_max_dezenas: 7, 
+    min_soma: 92, 
+    max_soma: 310, 
+    max_pares: 6, 
+    min_pares: 1, 
+    max_impares: 6, 
+    min_impares: 1, 
+    min_mais_sorteados: 0, 
+    max_mais_sorteados: 2, 
+    min_menos_sorteados: 0, 
+    max_menos_sorteados: 7, 
+    min_colunas_cheias: 0, 
+    max_colunas_cheias: 0, 
+    min_linhas_cheias: 0, 
+    max_linhas_cheias: 0, 
+    min_colunas_vazias: 0, 
+    max_colunas_vazias: 7, 
+    min_linhas_vazias: 0, 
+    max_linhas_vazias: 5, 
+    min_fibonacci: 0, 
+    max_fibonacci: 2, 
+    min_numeros_primos: 0, 
+    max_numeros_primos: 3, 
     min_digitos: 0,
     max_digitos: 0,
-    max_numeros_consecutivos: 2, #OK
-    min_quadrantes: 2, #OK
+    max_numeros_consecutivos: 2, 
+    min_quadrantes: 2, 
+    max_multiplos: 3,
     linhas: [[1,2,3,4,5,6,7,8,9,10],
              [11,12,13,14,15,16,17,18,19,20],
              [21,22,23,24,25,26,27,28,29,30],
@@ -60,67 +61,12 @@ quina = Loteria.create(
                  [6,7,8,9,10,16,17,18,19,20,26,27,28,29,30,36,37,38,39,40],
                  [41,42,43,44,45,51,52,53,54,55,61,62,63,64,65,71,72,73,74,75],
                  [46,47,48,49,50,56,57,58,59,60,66,67,68,69,70,76,77,78,79,80]],                     
-    mais_sorteados: [39,4,52,49,53,16,44,40,42,10], #OK
-    menos_sorteados: [17,35,67,23,47,6,24,65,3,20], #OK
-    fibonacci: [1,2,3,5,8,13,21,34,55], #OK
-    numeros_primos: [2,3,5,7,11,13,17,19,23,29,31,41,43,47,53,59,61,67,71,73,79], #OK
-    multiplos: [3,4,5,6,7,8,9,10,11]
+    mais_sorteados: [39,4,52,49,53,16,44,40,42,10], 
+    menos_sorteados: [17,35,67,23,47,6,24,65,3,20], 
+    fibonacci: [1,2,3,5,8,13,21,34,55], 
+    numeros_primos: [2,3,5,7,11,13,17,19,23,29,31,41,43,47,53,59,61,67,71,73,79], 
+    multiplos: [3,4,5,6,7,8]
 )
 
-dupla_sena = Loteria.create( 
-    nome: 'Dupla Sena', #OK
-    sigla: 'DS', #OK
-    qtd_min_dezenas: 6, #OK
-    qtd_max_dezenas: 15, #OK
-    min_soma: 30, # OK
-    max_soma: 300, # OK
-    max_pares: 14, # OK
-    min_pares: 1, # OK
-    max_impares: 14, # OK
-    min_impares: 1, # OK
-    min_mais_sorteados: 0, #OK
-    max_mais_sorteados: 2, #OK
-    min_menos_sorteados: 1, #OK
-    max_menos_sorteados: 10, #OK
-    min_colunas_cheias: 0, #OK
-    max_colunas_cheias: 1, #OK
-    min_linhas_cheias: 0, #OK
-    max_linhas_cheias: 0, #OK
-    min_colunas_vazias: 0, #OK
-    max_colunas_vazias: 7, #OK
-    min_linhas_vazias: 0, #OK
-    max_linhas_vazias: 2, #OK
-    min_fibonacci: 0, #OK
-    max_fibonacci: 2, #OK
-    min_numeros_primos: 0, #OK
-    max_numeros_primos: 3, #OK
-    min_coluna_esquerda_direita: 0,
-    min_digitos: 0,
-    max_digitos: 0,
-    max_numeros_consecutivos: 3, #OK
-    min_quadrantes: 2, #OK
-    linhas: [[1,2,3,4,5,6,7,8,9,10],
-             [11,12,13,14,15,16,17,18,19,20],
-             [21,22,23,24,25,26,27,28,29,30],
-             [31,32,33,34,35,36,37,38,39,40],
-             [41,42,43,44,45,46,47,48,49,50]],
-    colunas: [[1,11,21,31,41],
-              [2,12,22,32,42],
-              [3,13,23,33,43],
-              [4,14,24,34,44],
-              [5,15,25,35,45],
-              [6,16,26,36,46],
-              [7,17,27,37,47],
-              [8,18,28,38,48],
-              [9,19,29,39,49],
-              [10,20,30,40,50]],
-    quadrantes: [[1,2,3,4,5,11,12,13,14,15,21,22,23,24,25,31,32,33,34,35,41,42,43,44,45],
-                 [6,7,8,9,10,16,17,18,19,20,26,27,28,29,30,36,37,38,39,40,46,47,48,49,50]],                     
-    mais_sorteados: [39,45,47,33,4,11,42,14,19,20], #OK
-    menos_sorteados: [22,48,27,24,2,17,41,13,37,26], #OK
-    fibonacci: [1,2,3,5,8,13,21,34,55], #OK
-    numeros_primos: [2,3,5,7,11,13,17,19,23,29,31,41,43,47,53,59,61,67,71,73,79], #OK
-    multiplos: [3,4,5,6,7,8,9,10,11]
-)
 
 
