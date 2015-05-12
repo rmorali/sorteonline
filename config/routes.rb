@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :bolaos
 
+  resources :loterias
+
   get 'zera_bd' => 'bolaos#zera'
 
   # The priority is based upon order of creation: first created -> highest priority.
