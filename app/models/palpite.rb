@@ -173,7 +173,7 @@ class Palpite < ActiveRecord::Base
     prev, prev2 = cur, prev  # one step further
     prev2 + 1 != prev        # two ago != one ago ? --> new slice
   }.to_a
-    if filtro.any? { |x| x.length >= self.parametros.max_numeros_consecutivos }
+    if filtro.any? { |x| x.length > self.parametros.max_numeros_consecutivos }
       "#{self.parametros.max_numeros_consecutivos} em seq."
     else
       self.teste_numeros_consecutivos = true
