@@ -23,20 +23,24 @@ class CreateLoteria < ActiveRecord::Migration
       t.integer :max_colunas_vazias
       t.integer :min_linhas_vazias
       t.integer :max_linhas_vazias
-      t.integer :min_mesma_linha
-      t.integer :max_mesma_linha
-      t.integer :min_mesma_coluna
-      t.integer :max_mesma_coluna
       t.integer :min_coluna_esquerda_direita
       t.integer :min_digitos
       t.integer :max_digitos
       t.integer :min_sequencia
       t.integer :max_sequencia
+      t.integer :max_fibonacci
+      t.integer :min_fibonacci
+      t.integer :max_fibonacci
+      t.integer :min_fibonacci
+      t.integer :max_numeros_primos
+      t.integer :min_numeros_primos
       t.text :linhas
       t.text :colunas
-      t.text :menos_sorteados
-      t.text :mais_sorteados
-      t.text :multiplos
+      t.string :menos_sorteados
+      t.string :mais_sorteados
+      t.string :multiplos
+      t.string :fibonacci
+      t.string :numeros_primos
     end
   end
 end

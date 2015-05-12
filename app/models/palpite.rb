@@ -29,6 +29,8 @@ class Palpite < ActiveRecord::Base
     self.analisa_colunas_vazias
     self.analisa_linhas_cheias
     self.analisa_linhas_vazias
+    self.analisa_fibonacci
+    self.analisa_numeros_primos
   end
 
   def analisa_soma
@@ -124,6 +126,25 @@ class Palpite < ActiveRecord::Base
     end
     "#{total_linhas_vazias} - #{self.teste_linhas_vazias}"
   end
+
+  def analisa_fibonacci
+    qtd_fibonacci =  qtd_dezenas_do_palpite - (self.dezenas_do_palpite - self.parametros.fibonacci).length
+    if qtd_fibonacci >= self.parametros.min_fibonacci && qtd_fibonacci <= self.parametros.max_fibonacci
+      self.teste_fibonacci = true
+      self.save
+    end
+    "#{qtd_fibonacci} - #{self.teste_fibonacci}"
+  end
+
+  def analisa_numeros_primos
+    qtd_numeros_primos =  qtd_dezenas_do_palpite - (self.dezenas_do_palpite - self.parametros.numeros_primos).length
+    if qtd_numeros_primos >= self.parametros.min_numeros_primos && qtd_numeros_primos <= self.parametros.max_numeros_primos
+      self.teste_numeros_primos = true
+      self.save
+    end
+    "#{qtd_numeros_primos} - #{self.teste_numeros_primos}"
+  end
+
 
 end
 

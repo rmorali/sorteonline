@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511202508) do
+ActiveRecord::Schema.define(version: 20150512000611) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
@@ -43,20 +43,22 @@ ActiveRecord::Schema.define(version: 20150511202508) do
     t.integer "max_colunas_vazias"
     t.integer "min_linhas_vazias"
     t.integer "max_linhas_vazias"
-    t.integer "min_mesma_linha"
-    t.integer "max_mesma_linha"
-    t.integer "min_mesma_coluna"
-    t.integer "max_mesma_coluna"
     t.integer "min_coluna_esquerda_direita"
     t.integer "min_digitos"
     t.integer "max_digitos"
     t.integer "min_sequencia"
     t.integer "max_sequencia"
+    t.integer "max_fibonacci"
+    t.integer "min_fibonacci"
+    t.integer "max_numeros_primos"
+    t.integer "min_numeros_primos"
     t.text    "linhas"
     t.text    "colunas"
-    t.text    "menos_sorteados"
-    t.text    "mais_sorteados"
-    t.text    "multiplos"
+    t.string  "menos_sorteados"
+    t.string  "mais_sorteados"
+    t.string  "multiplos"
+    t.string  "fibonacci"
+    t.string  "numeros_primos"
   end
 
   create_table "palpites", force: :cascade do |t|
@@ -71,6 +73,8 @@ ActiveRecord::Schema.define(version: 20150511202508) do
     t.boolean "teste_colunas_vazias"
     t.boolean "teste_linhas_vazias"
     t.boolean "teste_linhas_cheias"
+    t.boolean "teste_fibonacci"
+    t.boolean "teste_numeros_primos"
   end
 
 end
