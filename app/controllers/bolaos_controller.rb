@@ -3,7 +3,7 @@ class BolaosController < ApplicationController
   def index
     @bolao = Bolao.new
     @boloes = Bolao.all.reverse
-    @debug_mode = false
+    @debug_mode = true
   end
 
   def create

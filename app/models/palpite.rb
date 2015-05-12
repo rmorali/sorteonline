@@ -56,7 +56,7 @@ class Palpite < ActiveRecord::Base
 
   def analisa_soma
     soma = 0
-    self.dezenas_do_palpite.each do |dezena|
+    self.dezenas_do_palpite[0..(self.parametros.qtd_min_dezenas - 1)].each do |dezena|
       soma += dezena
     end
     if soma > self.parametros.min_soma && soma < self.parametros.max_soma
@@ -174,7 +174,7 @@ class Palpite < ActiveRecord::Base
     prev2 + 1 != prev        # two ago != one ago ? --> new slice
   }.to_a
     if filtro.any? { |x| x.length > self.parametros.max_numeros_consecutivos }
-      "#{self.parametros.max_numeros_consecutivos} em seq."
+      "+ q #{self.parametros.max_numeros_consecutivos} em seq."
     else
       self.teste_numeros_consecutivos = true
       self.save
