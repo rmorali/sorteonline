@@ -7,7 +7,7 @@
 
 <% @boloes.each do |bolao| %>
   <table>
-  <tr><th>Bolão: <%= bolao.nome %></th></tr>
+  <tr><th>Bolão: <%= bolao.nome %> - Relevância: <%= bolao.relevancia %> %</th></tr>
   <tr><th>Dezenas:</th><th>Soma</th><th>Par/Impar</th><th> + sorteadas</th><th> -sorteadas</th><th>Col.cheia</th><th>Col.vazia</th><th>Lin.cheia</th><th>Lin.vazia</th><th>Seq.Fibonacci</th><th>N.primos</th><th>N.consecutivos</th><th>Quadrantes</th><th>Pontos:</th></tr>
   <% bolao.palpites.each do |palpite| %>
     <tr>

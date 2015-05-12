@@ -33,6 +33,25 @@ class Palpite < ActiveRecord::Base
     self.analisa_numeros_primos
     self.analisa_numeros_consecutivos
     self.analisa_quadrantes
+    self.analisa_pontuacao
+  end
+
+  def analisa_pontuacao
+    total = 0
+    total += 1 if teste_soma?
+    total += 1 if teste_pares_impares?
+    total += 1 if teste_mais_sorteados?
+    total += 1 if teste_menos_sorteados?
+    total += 1 if teste_colunas_cheias?
+    total += 1 if teste_colunas_vazias?
+    total += 1 if teste_linhas_vazias?
+    total += 1 if teste_linhas_cheias?
+    total += 1 if teste_fibonacci?
+    total += 1 if teste_numeros_primos?
+    total += 1 if teste_numeros_consecutivos?
+    total += 1 if teste_quadrantes?
+    self.pontos = (total * 100) / 12
+    self.save
   end
 
   def analisa_soma

@@ -34,4 +34,14 @@ class Bolao < ActiveRecord::Base
     end
   end
 
+  def relevancia
+    total_de_sucessos = 0
+    total_de_palpites = self.palpites.count
+    self.palpites.each do |palpite|
+      total_de_sucessos += 1 if palpite.pontos == 100
+    end
+    total_relevancia = (total_de_sucessos * 100 ) / total_de_palpites
+    total_relevancia.round(2)
+  end
+
 end
