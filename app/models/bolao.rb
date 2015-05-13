@@ -34,14 +34,28 @@ class Bolao < ActiveRecord::Base
     end
   end
 
-  def relevancia
+  def qtd_de_palpites
+    self.palpites.count
+  end
+
+  def media_estrita
     total_de_sucessos = 0
-    total_de_palpites = self.palpites.count
     self.palpites.each do |palpite|
       total_de_sucessos += 1 if palpite.pontos == 100
     end
-    total_relevancia = (total_de_sucessos * 100 ) / total_de_palpites
-    total_relevancia.round(2)
+    media = (total_de_sucessos * 100 ) / qtd_de_palpites
+    media.round.to_i
+  end
+
+  def media_normal
+    total_pontos = self.palpites.sum(:pontos)
+    media = total_pontos / qtd_de_palpites
+    media.round.to_i
+  end
+
+  def media_geral
+    media = (media_estrita + media_normal) / 2
+    media.round(2)
   end
 
 end
