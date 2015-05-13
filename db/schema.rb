@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512223113) do
+ActiveRecord::Schema.define(version: 20150513183304) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
     t.string   "arquivo_content_type"
     t.integer  "arquivo_file_size"
     t.datetime "arquivo_updated_at"
+    t.boolean  "estrito"
   end
 
   create_table "loteria", force: :cascade do |t|

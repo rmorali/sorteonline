@@ -66,13 +66,28 @@ class Bolao < ActiveRecord::Base
       when 'pares_impares'
         texto << "Minimo<br>#{parametros.min_pares} Par / #{parametros.min_impares} Impar"
       when 'mais_sorteados'
-        texto << "N. + Sorteados<br> >= #{parametros.min_mais_sorteados} <= #{parametros.max_mais_sorteados}"
+        texto << " + Sorteados<br> >= #{parametros.min_mais_sorteados} <= #{parametros.max_mais_sorteados}"
       when 'menos_sorteados'
-        texto << "N. - Sorteados<br> >= #{parametros.min_menos_sorteados} <= #{parametros.max_menos_sorteados}"
+        texto << "- Sorteados<br> >= #{parametros.min_menos_sorteados} <= #{parametros.max_menos_sorteados}"
       when 'colunas_cheias'
         texto << "Colunas cheias<br> >= #{parametros.min_colunas_cheias} <= #{parametros.max_colunas_cheias}"
-      when 'menos_sorteados'
+      when 'colunas_vazias'
         texto << "Colunas vazias<br> >= #{parametros.min_colunas_vazias} <= #{parametros.max_colunas_vazias}"
+      when 'linhas_cheias'
+        texto << "Linhas cheias<br> >= #{parametros.min_linhas_cheias} <= #{parametros.max_linhas_cheias}"
+      when 'linhas_vazias'
+        texto << "Linhas vazias<br> >= #{parametros.min_linhas_vazias} <= #{parametros.max_linhas_vazias}"
+      when 'fibonacci'
+        texto << "Seq.Fibonacci<br> >= #{parametros.min_fibonacci} <= #{parametros.max_fibonacci}"
+      when 'numeros_primos'
+        texto << "Num.Primos<br> >= #{parametros.min_numeros_primos} <= #{parametros.max_numeros_primos}"
+      when 'numeros_consecutivos'
+        texto << "Num.Consecutivos<br> <= #{parametros.max_numeros_consecutivos}"
+      when 'quadrantes'
+        texto << "Quadrantes<br> >= #{parametros.min_quadrantes}"
+      when 'multiplos'
+        texto << "Multiplos<br> <= #{parametros.max_multiplos}"
+
       else
   
 
