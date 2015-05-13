@@ -58,4 +58,26 @@ class Bolao < ActiveRecord::Base
     media.round(2)
   end
 
+  def titulo(item)
+    texto = []
+    case item
+      when 'soma'
+        texto << "Soma<br> > #{parametros.min_soma} < #{parametros.max_soma}"
+      when 'pares_impares'
+        texto << "Minimo<br>#{parametros.min_pares} Par / #{parametros.min_impares} Impar"
+      when 'mais_sorteados'
+        texto << "N. + Sorteados<br> >= #{parametros.min_mais_sorteados} <= #{parametros.max_mais_sorteados}"
+      when 'menos_sorteados'
+        texto << "N. - Sorteados<br> >= #{parametros.min_menos_sorteados} <= #{parametros.max_menos_sorteados}"
+      when 'colunas_cheias'
+        texto << "Colunas cheias<br> >= #{parametros.min_colunas_cheias} <= #{parametros.max_colunas_cheias}"
+      when 'menos_sorteados'
+        texto << "Colunas vazias<br> >= #{parametros.min_colunas_vazias} <= #{parametros.max_colunas_vazias}"
+      else
+  
+
+    end
+    texto.join(' ')
+  end
+
 end

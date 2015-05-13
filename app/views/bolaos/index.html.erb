@@ -38,8 +38,8 @@
 
 <% @boloes.each do |bolao| %>
   <table>
-   <tr><th><%= bolao.nome %> - <%= bolao.qtd_de_palpites %> palpites<br><br>
-  Média: <%= bolao.media_estrita %>%..<%= bolao.media_normal %>% = <span style="font-size:21px"><%= bolao.media_geral %> %</span></th><th>Soma</th><th>Par/Impar</th><th> + sorteadas</th><th> -sorteadas</th><th>Col.cheia</th><th>Col.vazia</th><th>Lin.cheia</th><th>Lin.vazia</th><th>Seq.Fibonacci</th><th>N.primos</th><th>N.consecutivos</th><th>Quadrantes</th><th>Multiplos</th><th>Pontos:</th></tr>
+   <tr><th><%= bolao.nome %> - <%= bolao.qtd_de_palpites %> palpites<br>
+  Média: <%= bolao.media_estrita %>%..<%= bolao.media_normal %>% = <span style="font-size:21px"><%= bolao.media_geral %> %</span></th><th><%= raw bolao.titulo('soma') %></th><th><%= raw bolao.titulo('pares_impares') %></th><th><%= raw bolao.titulo('mais_sorteados') %></th><th><%= raw bolao.titulo('menos_sorteados') %></th><th><%= raw bolao.titulo('colunas_cheias') %></th><th><%= raw bolao.titulo('colunas_vazias') %></th><th><%= raw bolao.titulo('linhas_cheias') %></th><th><%= raw bolao.titulo('linhas_vazias') %></th><th><%= raw bolao.titulo('fibonacci') %></th><th><%= raw bolao.titulo('numeros_primos') %></th><th><%= raw bolao.titulo('numeros_consecutivos') %></th><th><%= raw bolao.titulo('quadrantes') %></th><th><%= raw bolao.titulo('multiplos') %></th><th>Pontos:</th></tr>
   <% bolao.palpites.each do |palpite| %>
     <tr>
     <td><%= palpite.dezenas %></td>
