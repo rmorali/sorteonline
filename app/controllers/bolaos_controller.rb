@@ -3,6 +3,7 @@ class BolaosController < ApplicationController
   def index
     @bolao = Bolao.new
     @boloes = Bolao.all.reverse
+    @boloes_ranking = Bolao.all.sort_by { |bolao| bolao.media_geral }
     @debug_mode = nil
   end
 
