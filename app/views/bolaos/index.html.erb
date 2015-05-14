@@ -9,7 +9,7 @@
 <table>
 <tr><th>Bolão</th><th>Média Geral</th></tr>
 <% @boloes_ranking.each do |bolao| %>
-  <tr><td><%= bolao.nome %> - <%= bolao.qtd_de_palpites %> palpites</td><td><%= bolao.media_geral %> %</td></tr>
+  <tr><td><%= bolao.nome %> - <%= bolao.qtd_de_palpites %> palpites</td><td><%= bolao.media_estrita %>%..<%= bolao.media_normal %>% = <span style="font-size:18px"><%= bolao.media_geral %> %</span></td></tr>
 <% end %>
 </table>
 
