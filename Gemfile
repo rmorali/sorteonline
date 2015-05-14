@@ -26,7 +26,7 @@ gem "therubyracer", platforms: :ruby
 gem "paperclip", "~> 4.2"
 gem 'mysql'
 gem 'simple_form'
-gem 'unicorn'
+gem 'thin'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
