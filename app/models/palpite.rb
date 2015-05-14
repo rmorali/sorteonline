@@ -9,7 +9,8 @@ class Palpite < ActiveRecord::Base
       numeros << dezena.to_i
     end
     2.times { numeros.delete_at(0) }
-    numeros
+    numeros.delete(0)
+    numeros.sort
   end
 
   def qtd_dezenas_do_palpite
@@ -197,29 +198,17 @@ class Palpite < ActiveRecord::Base
     "#{total_quadrantes_usados} - #{self.teste_quadrantes}"
   end
 
-  def multiplos_de(numero)
-    mult = []
-    qtd = (self.parametros.qtd_dezenas / numero + 1).to_i
-    i = 1
-    until i == qtd
-      mult << numero * i
-      i += 1 
-    end
-    mult
-  end
-
   def analisa_multiplos
     acusa_multiplo = 0
     self.parametros.multiplos.each do |m|
-      qtd_numeros_multiplos =  self.qtd_dezenas_do_palpite - ( self.dezenas_do_palpite - self.multiplos_de(m) ).length
-      acusa_multiplo = m if qtd_numeros_multiplos > self.parametros.max_multiplos
+      acusa_multiplo = m if self.dezenas_do_palpite.find_all { |dezena| dezena % m == 0 }.length > self.parametros.max_multiplos
     end
-      if acusa_multiplo == 0
-        self.teste_multiplos = true
-        self.save
-      else
-        "+ que #{self.parametros.max_multiplos} * #{acusa_multiplo}" 
-      end       
+    if acusa_multiplo == 0
+      self.teste_multiplos = true
+      self.save
+    else
+      "+ que #{self.parametros.max_multiplos} * #{acusa_multiplo}" 
+    end       
   end
 
 
