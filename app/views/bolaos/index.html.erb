@@ -18,7 +18,7 @@
 <% @boloes.each do |bolao| %>
   <table>
   <tr><th><%= bolao.nome %> - <%= bolao.qtd_de_palpites %> palpites<br>
-  Média: <%= bolao.media_estrita %>%..<%= bolao.media_normal %>% = <span style="font-size:21px"><%= bolao.media_geral %> %</span></th><th><%= raw bolao.titulo('soma') %></th><th><%= raw bolao.titulo('pares_impares') %></th><th><%= raw bolao.titulo('mais_sorteados') %></th><th><%= raw bolao.titulo('menos_sorteados') %></th><th><%= raw bolao.titulo('colunas_cheias') %></th><th><%= raw bolao.titulo('colunas_vazias') %></th><th><%= raw bolao.titulo('linhas_cheias') %></th><th><%= raw bolao.titulo('linhas_vazias') %></th><th><%= raw bolao.titulo('fibonacci') %></th><th><%= raw bolao.titulo('numeros_primos') %></th><th><%= raw bolao.titulo('numeros_consecutivos') %></th><th><%= raw bolao.titulo('quadrantes') %></th><th><%= raw bolao.titulo('multiplos') %></th><th>Pontos</th></tr>
+  Média: <%= bolao.media_estrita %>%..<%= bolao.media_normal %>% = <span style="font-size:21px"><%= bolao.media_geral %> %</span></th><th><%= raw bolao.titulo('soma') %></th><th><%= raw bolao.titulo('pares_impares') %></th><th><%= raw bolao.titulo('mais_sorteados') %></th><th><%= raw bolao.titulo('menos_sorteados') %></th><th><%= raw bolao.titulo('colunas_cheias') %></th><th><%= raw bolao.titulo('colunas_vazias') %></th><th><%= raw bolao.titulo('linhas_cheias') %></th><th><%= raw bolao.titulo('linhas_vazias') %></th><th><%= raw bolao.titulo('fibonacci') %></th><th><%= raw bolao.titulo('numeros_primos') %></th><th><%= raw bolao.titulo('numeros_consecutivos') %></th><th><%= raw bolao.titulo('quadrantes') %></th><th><%= raw bolao.titulo('multiplos') %></th><th><%= raw bolao.titulo('distancia') %></th><th>Pontos</th></tr>
   <% bolao.palpites.each do |palpite| %>
     <tr>
     <td><%= palpite.dezenas %></td>
@@ -35,6 +35,7 @@
     <td><%= palpite.analisa_numeros_consecutivos %></td>
     <td><%= palpite.analisa_quadrantes %></td>
     <td><%= palpite.analisa_multiplos %></td>
+    <td><%= palpite.analisa_distancia %></td>
     <td><%= palpite.pontos %></td>
     </tr>
   <% end %>
@@ -45,8 +46,8 @@
 
 <% @boloes.each do |bolao| %>
   <table>
-   <tr><th><%= bolao.nome %> - <%= bolao.qtd_de_palpites %> palpites<br>
-  Média: <%= bolao.media_estrita %>%..<%= bolao.media_normal %>% = <span style="font-size:21px"><%= bolao.media_geral %> %</span></th><th><%= raw bolao.titulo('soma') %></th><th><%= raw bolao.titulo('pares_impares') %></th><th><%= raw bolao.titulo('mais_sorteados') %></th><th><%= raw bolao.titulo('menos_sorteados') %></th><th><%= raw bolao.titulo('colunas_cheias') %></th><th><%= raw bolao.titulo('colunas_vazias') %></th><th><%= raw bolao.titulo('linhas_cheias') %></th><th><%= raw bolao.titulo('linhas_vazias') %></th><th><%= raw bolao.titulo('fibonacci') %></th><th><%= raw bolao.titulo('numeros_primos') %></th><th><%= raw bolao.titulo('numeros_consecutivos') %></th><th><%= raw bolao.titulo('quadrantes') %></th><th><%= raw bolao.titulo('multiplos') %></th><th>Pontos</th></tr>
+  <tr><th><%= bolao.nome %> - <%= bolao.qtd_de_palpites %> palpites<br>
+  Média: <%= bolao.media_estrita %>%..<%= bolao.media_normal %>% = <span style="font-size:21px"><%= bolao.media_geral %> %</span></th><th><%= raw bolao.titulo('soma') %></th><th><%= raw bolao.titulo('pares_impares') %></th><th><%= raw bolao.titulo('mais_sorteados') %></th><th><%= raw bolao.titulo('menos_sorteados') %></th><th><%= raw bolao.titulo('colunas_cheias') %></th><th><%= raw bolao.titulo('colunas_vazias') %></th><th><%= raw bolao.titulo('linhas_cheias') %></th><th><%= raw bolao.titulo('linhas_vazias') %></th><th><%= raw bolao.titulo('fibonacci') %></th><th><%= raw bolao.titulo('numeros_primos') %></th><th><%= raw bolao.titulo('numeros_consecutivos') %></th><th><%= raw bolao.titulo('quadrantes') %></th><th><%= raw bolao.titulo('multiplos') %></th><th><%= raw bolao.titulo('distancia') %></th><th>Pontos</th></tr>
   <% bolao.palpites.each do |palpite| %>
     <tr>
     <td><%= palpite.dezenas %></td>
@@ -63,6 +64,7 @@
     <td><%= palpite.teste_numeros_consecutivos %></td>
     <td><%= palpite.teste_quadrantes %></td>
     <td><%= palpite.teste_multiplos %></td>
+    <td><%= palpite.teste_distancia %></td>
     <td><%= palpite.pontos %></td>
     </tr>
   <% end %>

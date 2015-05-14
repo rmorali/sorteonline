@@ -35,6 +35,7 @@ class CreateLoteria < ActiveRecord::Migration
       t.integer :max_numeros_consecutivos
       t.integer :min_quadrantes
       t.integer :max_multiplos
+      t.integer :max_distancia
       t.text :linhas
       t.text :colunas
       t.text :quadrantes

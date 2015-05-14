@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512223113) do
+ActiveRecord::Schema.define(version: 20150514202155) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150512223113) do
     t.integer "max_numeros_consecutivos"
     t.integer "min_quadrantes"
     t.integer "max_multiplos"
+    t.integer "max_distancia"
     t.text    "linhas"
     t.text    "colunas"
     t.text    "quadrantes"
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(version: 20150512223113) do
     t.boolean "teste_numeros_consecutivos"
     t.boolean "teste_quadrantes"
     t.boolean "teste_multiplos"
+    t.boolean "teste_distancia"
   end
 
 end

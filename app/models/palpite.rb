@@ -35,6 +35,7 @@ class Palpite < ActiveRecord::Base
     self.analisa_numeros_consecutivos
     self.analisa_quadrantes
     self.analisa_multiplos
+    self.analisa_distancia
     self.analisa_pontuacao
   end
 
@@ -53,7 +54,8 @@ class Palpite < ActiveRecord::Base
     total += 1 if teste_numeros_consecutivos?
     total += 1 if teste_quadrantes?
     total += 1 if teste_multiplos?
-    self.pontos = (total * 100) / 13
+    total += 1 if teste_distancia?
+    self.pontos = (total * 100) / 14
     self.save
   end
 
@@ -211,6 +213,20 @@ class Palpite < ActiveRecord::Base
     end       
   end
 
+  def analisa_distancia
+    valida = true
+    distancia = 0
+    self.dezenas_do_palpite.in_groups_of(2) do |group|
+      distancia = group[1].to_i - group[0].to_i
+      valida = nil if distancia > self.parametros.max_distancia
+    end
+    if valida == true
+      self.teste_distancia = true
+      self.save
+    else
+      "> que #{self.parametros.max_distancia}"
+    end
+  end
 
 end
 

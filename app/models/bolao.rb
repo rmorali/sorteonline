@@ -87,7 +87,8 @@ class Bolao < ActiveRecord::Base
         texto << "Quadrantes<br> >= #{parametros.min_quadrantes}"
       when 'multiplos'
         texto << "Multiplos<br> <= #{parametros.max_multiplos}"
-
+      when 'distancia'
+        texto << "Distancia<br> <= #{parametros.max_distancia}"
       else
   
 
