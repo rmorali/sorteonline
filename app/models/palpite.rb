@@ -36,6 +36,7 @@ class Palpite < ActiveRecord::Base
     self.analisa_quadrantes
     self.analisa_multiplos
     self.analisa_distancia
+    self.analisa_intervalos
     self.analisa_pontuacao
   end
 
@@ -55,7 +56,8 @@ class Palpite < ActiveRecord::Base
     total += 1 if teste_quadrantes?
     total += 1 if teste_multiplos?
     total += 1 if teste_distancia?
-    self.pontos = (total * 100) / 14
+    total += 1 if teste_intervalos?
+    self.pontos = (total * 100) / 15
     self.save
   end
 
@@ -225,6 +227,26 @@ class Palpite < ActiveRecord::Base
       self.save
     else
       "> que #{self.parametros.max_distancia}"
+    end
+  end
+
+  def analisa_intervalos
+    valida = true
+    dezena_invalida = []
+    i = 0
+    self.dezenas_do_palpite[0..(qtd_dezenas_do_palpite - 1)].each do |dezena|
+      unless dezena >= self.parametros.intervalos[i][0] && dezena <= self.parametros.intervalos[i][1]
+        valida = nil
+        dezena_invalida = dezena
+        break
+      end
+      i += 1
+    end
+    if valida == true
+      self.teste_intervalos = true
+      self.save
+    else
+      "#{dezena_invalida} <> #{self.parametros.intervalos[i].to_s.gsub('[',' ').gsub(']',' ').gsub(',','-')}"
     end
   end
 

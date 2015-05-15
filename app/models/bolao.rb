@@ -88,7 +88,9 @@ class Bolao < ActiveRecord::Base
       when 'multiplos'
         texto << "Multiplos<br> <= #{parametros.max_multiplos}"
       when 'distancia'
-        texto << "Distancia<br> <= #{parametros.max_distancia}"
+        texto << "Distancias<br> <= #{parametros.max_distancia}"
+      when 'intervalos'
+        texto << "Intervalos<br>"
       else
   
 
