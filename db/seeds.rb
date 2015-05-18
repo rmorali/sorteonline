@@ -74,7 +74,7 @@ quina = Loteria.create(
 
 quina_restritivo = Loteria.create( 
     nome: 'Quina Restritivo', 
-    sigla: 'RQN', 
+    sigla: 'RQ', 
     qtd_dezenas: 80,
     qtd_min_dezenas: 5, 
     qtd_max_dezenas: 7, 
