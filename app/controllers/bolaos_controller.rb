@@ -4,7 +4,7 @@ class BolaosController < ApplicationController
     @bolao = Bolao.new
     @boloes = Bolao.all.reverse
     @boloes_ranking = Bolao.all.sort_by { |bolao| bolao.media_geral }
-    @debug_mode = true
+    @debug_mode = nil
   end
 
   def create

@@ -78,8 +78,13 @@ class Palpite < ActiveRecord::Base
   def analisa_soma_dos_digitos
     soma = 0
     self.dezenas_do_palpite.each do |dezena|
-      soma += dezena.to_s.first.to_i
-      soma += dezena.to_s.last.to_i
+      dezena_string = dezena.to_s
+      if dezena_string.length > 1
+        soma += dezena_string.first.to_i
+        soma += dezena_string.last.to_i
+      else
+        soma += dezena
+      end
     end
     if soma > self.parametros.min_soma_dos_digitos && soma < self.parametros.max_soma_dos_digitos
       self.teste_soma_dos_digitos = true
