@@ -63,6 +63,8 @@ class Bolao < ActiveRecord::Base
     case item
       when 'soma'
         texto << "Soma<br> > #{parametros.min_soma} < #{parametros.max_soma}"
+      when 'soma_dos_digitos'
+        texto << "Soma dos digitos<br> > #{parametros.min_soma_dos_digitos} < #{parametros.max_soma_dos_digitos}"
       when 'pares_impares'
         texto << "Minimo<br>#{parametros.min_pares} Par / #{parametros.min_impares} Impar"
       when 'mais_sorteados'

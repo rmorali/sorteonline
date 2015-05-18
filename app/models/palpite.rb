@@ -23,6 +23,7 @@ class Palpite < ActiveRecord::Base
 
   def analises
     self.analisa_soma
+    self.analisa_soma_dos_digitos
     self.analisa_pares_impares
     self.analisa_mais_sorteados
     self.analisa_menos_sorteados
@@ -43,6 +44,7 @@ class Palpite < ActiveRecord::Base
   def analisa_pontuacao
     total = 0
     total += 1 if teste_soma?
+    total += 1 if teste_soma_dos_digitos?
     total += 1 if teste_pares_impares?
     total += 1 if teste_mais_sorteados?
     total += 1 if teste_menos_sorteados?
@@ -57,7 +59,7 @@ class Palpite < ActiveRecord::Base
     total += 1 if teste_multiplos?
     total += 1 if teste_distancia?
     total += 1 if teste_intervalos?
-    self.pontos = (total * 100) / 15
+    self.pontos = (total * 100) / 16
     self.save
   end
 
@@ -71,6 +73,19 @@ class Palpite < ActiveRecord::Base
       self.save
     end
     "#{soma} - #{teste_soma}"
+  end
+
+  def analisa_soma_dos_digitos
+    soma = 0
+    self.dezenas_do_palpite.each do |dezena|
+      soma += dezena.to_s.first.to_i
+      soma += dezena.to_s.last.to_i
+    end
+    if soma > self.parametros.min_soma_dos_digitos && soma < self.parametros.max_soma_dos_digitos
+      self.teste_soma_dos_digitos = true
+      self.save
+    end
+    "#{soma} - #{teste_soma_dos_digitos}"
   end
 
   def analisa_pares_impares
