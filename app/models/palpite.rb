@@ -68,7 +68,7 @@ class Palpite < ActiveRecord::Base
     self.dezenas_do_palpite[0..(self.parametros.qtd_min_dezenas - 1)].each do |dezena|
       soma += dezena
     end
-    if soma > self.parametros.min_soma && soma < self.parametros.max_soma
+    if ( soma > self.parametros.min_soma && soma < self.parametros.max_soma ) || qtd_dezenas_do_palpite > self.parametros.qtd_min_dezenas
       self.teste_soma = true
       self.save
     end
@@ -86,7 +86,7 @@ class Palpite < ActiveRecord::Base
         soma += dezena
       end
     end
-    if soma > self.parametros.min_soma_dos_digitos && soma < self.parametros.max_soma_dos_digitos
+    if ( soma > self.parametros.min_soma_dos_digitos && soma < self.parametros.max_soma_dos_digitos ) || qtd_dezenas_do_palpite > self.parametros.qtd_min_dezenas
       self.teste_soma_dos_digitos = true
       self.save
     end
