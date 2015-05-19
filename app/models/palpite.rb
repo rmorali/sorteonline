@@ -262,7 +262,7 @@ class Palpite < ActiveRecord::Base
       end
       i += 1
     end
-    if valida == true
+    if valida == true || qtd_dezenas_do_palpite > self.parametros.qtd_min_dezenas
       self.teste_intervalos = true
       self.save
     else
