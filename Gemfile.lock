@@ -181,6 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails
+  factory_girl
   factory_girl_rails
   jbuilder
   jquery-rails

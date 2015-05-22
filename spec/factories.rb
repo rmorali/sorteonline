@@ -2,6 +2,7 @@ FactoryGirl.define do
   
   factory :loteria do
     nome 'Quina'
+    sigla 'QN'
     qtd_dezenas 5
   end
 
