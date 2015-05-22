@@ -33,7 +33,7 @@ gem 'spring',        group: :development
 
 #gem 'autotest-rails',            group: [:development, :test]
 #gem 'factory_girl_rails',        group: [:development, :test]
-#gem 'rspec-rails',               group: [:development, :test]
+gem 'rspec-rails',               group: [:development, :test]
 #gem 'shoulda-matchers',          group: [:development, :test]
 #gem 'shoulda',                   group: [:development, :test]
 
