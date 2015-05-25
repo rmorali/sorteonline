@@ -48,8 +48,7 @@ class Bolao < ActiveRecord::Base
   end
 
   def media_normal
-    total_pontos = self.palpites.sum(:pontos)
-    media = total_pontos / qtd_de_palpites
+    media = self.palpites.average(:pontos)
     media.round.to_i
   end
 
