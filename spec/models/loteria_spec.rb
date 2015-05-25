@@ -15,7 +15,7 @@ describe Loteria do
   it 'should return loteria type' do
     quina = create(:loteria)
     tipo = 'QN'
-    Loteria.parametros(tipo).should == quina
+    Loteria.parametros(tipo).sigla.should == 'QN'
   end
 
 end
