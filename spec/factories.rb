@@ -17,7 +17,7 @@ FactoryGirl.define do
     min_mais_sorteados 0 
     max_mais_sorteados 2 
     min_menos_sorteados 0 
-    max_menos_sorteados 7 
+    max_menos_sorteados 2 
     min_colunas_cheias 0 
     max_colunas_cheias 10 
     min_linhas_cheias 0 

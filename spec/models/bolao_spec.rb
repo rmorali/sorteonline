@@ -33,7 +33,7 @@ describe Bolao do
   end
 
   it 'should return palpites quantity' do
-    @bolao.qtd_de_palpites.should == 26
+    @bolao.qtd_de_palpites.should == 29
   end
 
   it 'should calculate strict average' do
@@ -42,7 +42,7 @@ describe Bolao do
   end
 
   it 'should calculate normal average' do
-    Palpite.update_all(pontos: 52)
+    Palpite.update_all(pontos: 58)
     @bolao.media_normal.should == Palpite.average(:pontos).to_i
   end
 
