@@ -14,9 +14,9 @@ FactoryGirl.define do
     min_pares 1 
     max_impares 6 
     min_impares 1 
-    min_mais_sorteados 0 
+    min_mais_sorteados 1 
     max_mais_sorteados 2 
-    min_menos_sorteados 0 
+    min_menos_sorteados 1 
     max_menos_sorteados 2 
     min_colunas_cheias 0 
     max_colunas_cheias 10 
@@ -59,8 +59,8 @@ FactoryGirl.define do
                  [6,7,8,9,10,16,17,18,19,20,26,27,28,29,30,36,37,38,39,40],
                  [41,42,43,44,45,51,52,53,54,55,61,62,63,64,65,71,72,73,74,75],
                  [46,47,48,49,50,56,57,58,59,60,66,67,68,69,70,76,77,78,79,80]]                     
-    mais_sorteados [39,4,52,49,53,16,44,40,42,10] 
-    menos_sorteados [17,35,67,23,47,6,24,65,3,20] 
+    mais_sorteados [78,79,80] 
+    menos_sorteados [75,76,77] 
     fibonacci [1,2,3,5,8,13,21,34,55] 
     numeros_primos [2,3,5,7,11,13,17,19,23,29,31,41,43,47,53,59,61,67,71,73,79] 
     multiplos [3,4,5,6,7,8,9,10,11]
