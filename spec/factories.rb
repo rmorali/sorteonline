@@ -72,7 +72,7 @@ FactoryGirl.define do
 
   factory :palpite do
     association :bolao, factory: :bolao
-    dezenas '0001 - 01 02 03 04 05'
+    dezenas '0001 - 01 01 01 01 01'
   end
 
 end

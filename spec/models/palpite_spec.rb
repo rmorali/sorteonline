@@ -9,7 +9,7 @@ describe Palpite do
   end
 
   it 'returns only numbers' do
-    expect(@palpite.dezenas_do_palpite).to eq([1,2,3,4,5])
+    expect(@palpite.dezenas_do_palpite).to eq([1,1,1,1,1])
   end
 
   it 'returns quantity of numbers' do
@@ -43,7 +43,7 @@ describe Palpite do
     expect(@palpite.teste_soma).not_to be(true)
   end
 
-  it 'tests min soma dos digitos' do
+  it 'tests soma dos digitos' do
     @palpite.update_attributes(dezenas: "0001 - 14 21 41 75 80")
     @palpite.analises
     expect(@palpite.teste_soma_dos_digitos).to be(true)
@@ -61,20 +61,40 @@ describe Palpite do
     expect(@palpite.teste_soma_dos_digitos).not_to be(true)
   end
 
-  it 'should test min pares' do
-
+  it 'tests pares e impares' do
+    @palpite.update_attributes(dezenas: "0001 - 14 21 41 75 80")
+    @palpite.analises
+    expect(@palpite.teste_pares_impares).to be(true)
   end
 
-  it 'should test min impares' do
-
+  it 'fails min pares' do
+    @palpite.update_attributes(dezenas: "0001 - 01 11 13 15 17")
+    @palpite.analises
+    expect(@palpite.teste_pares_impares).not_to be(true)
   end
 
-  it 'should test min mais sorteados' do
-
+  it 'fails min impares' do
+    @palpite.update_attributes(dezenas: "0001 - 14 22 42 76 80")
+    @palpite.analises
+    expect(@palpite.teste_pares_impares).not_to be(true)
   end
 
-  it 'should test max mais sorteados' do
+  it 'tests mais sorteados' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 80")
+    @palpite.analises
+    expect(@palpite.teste_mais_sorteados).to be(true)
+  end
 
+  it 'fails min mais sorteados' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 05")
+    @palpite.analises
+    expect(@palpite.teste_mais_sorteados).not_to be(true)
+  end
+
+  it 'fails max mais sorteados' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 78 79 80")
+    @palpite.analises
+    expect(@palpite.teste_mais_sorteados).not_to be(true)
   end
 
   it 'should test min menos sorteados' do
