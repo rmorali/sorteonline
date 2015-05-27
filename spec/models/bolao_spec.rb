@@ -11,46 +11,46 @@ describe Bolao do
     @bolao = create(:bolao)
   end
 
-  it 'should have archive contents' do
-    @bolao.arquivo_contents.should_not == 'vazio'
+  it 'have archive contents' do
+    expect(@bolao.arquivo_contents).not_to eq('vazio')
   end
 
-  it 'should get the bolao name' do
-    @bolao.nome.should == @bolao.arquivo_file_name.remove('.txt')
+  it 'get the bolao name' do
+    expect(@bolao.nome).to eq(@bolao.arquivo_file_name.remove('.txt'))
   end
 
-  it 'should return the bolao type' do
-    @bolao.tipo.should == @bolao.arquivo_file_name.first(2)
+  it 'returns the bolao type' do
+    expect(@bolao.tipo).to eq(@bolao.arquivo_file_name.first(2))
   end
 
-  it 'should get parameters' do
-    @bolao.parametros.nome.should == @quina.nome
+  it 'get parameters' do
+    expect(@bolao.parametros.nome).to eq(@quina.nome)
   end
 
-  it 'should import palpites' do
+  it 'import palpites' do
     @bolao.importa_palpites
-    Palpite.count.should_not == 0
+    expect(Palpite.count).not_to eq(0)
   end
 
-  it 'should return palpites quantity' do
-    @bolao.qtd_de_palpites.should == 11
+  it 'returns palpites quantity' do
+    expect(@bolao.qtd_de_palpites).to eq(11)
   end
 
-  it 'should calculate strict average' do
+  it 'calculates strict average' do
     Palpite.update_all(pontos: 90)
-    @bolao.media_estrita.should == 0
+    expect(@bolao.media_estrita).to eq(0)
   end
 
-  it 'should calculate normal average' do
+  it 'calculates normal average' do
     Palpite.update_all(pontos: 50)
-    @bolao.media_normal.should == Palpite.average(:pontos).to_i
+    expect(@bolao.media_normal).to eq(Palpite.average(:pontos).to_i)
   end
 
-  it 'should calculate general average' do
-    @bolao.media_geral.should == ( @bolao.media_estrita + @bolao.media_normal) / 2
+  it 'calculates general average' do
+    expect(@bolao.media_geral).to eq(( @bolao.media_estrita + @bolao.media_normal) / 2)
   end
 
-  it 'should give title accordingly to type' do
+  it 'gives title accordingly to type' do
 
   end
 

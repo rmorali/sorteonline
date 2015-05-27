@@ -25,14 +25,22 @@ describe Palpite do
     expect(@palpite.pontos).to be > 0
   end
 
-  it 'should test min soma das dezenas' do
+  it 'should test soma das dezenas' do
+    @palpite.update_attributes(dezenas: "0001 - 14 21 41 75 80")
+    @palpite.analises
+    expect(@palpite.teste_soma).to be(true)
+  end
+
+  it 'should fail min soma das dezenas' do
     @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 05")
     @palpite.analises
     expect(@palpite.teste_soma).not_to be(true)
   end
 
-  it 'should test max soma das dezenas' do
-
+  it 'should fail max soma das dezenas' do
+    @palpite.update_attributes(dezenas: "0001 - 70 72 73 78 79")
+    @palpite.analises
+    expect(@palpite.teste_soma).not_to be(true)
   end
 
   it 'should test min soma dos digitos' do
