@@ -8,47 +8,57 @@ describe Palpite do
     @palpite = create(:palpite)
   end
 
-  it 'should return only numbers' do
+  it 'returns only numbers' do
     expect(@palpite.dezenas_do_palpite).to eq([1,2,3,4,5])
   end
 
-  it 'should return quantity of numbers' do
+  it 'returns quantity of numbers' do
     expect(@palpite.qtd_dezenas_do_palpite).to eq(5)
   end
 
-  it 'should get parameters' do
+  it 'get parameters' do
     expect(@palpite.parametros.nome).to eq('Quina')
   end
 
-  it 'should get score' do
+  it 'get score' do
     @palpite.analises
     expect(@palpite.pontos).to be > 0
   end
 
-  it 'should test soma das dezenas' do
+  it 'tests soma das dezenas' do
     @palpite.update_attributes(dezenas: "0001 - 14 21 41 75 80")
     @palpite.analises
     expect(@palpite.teste_soma).to be(true)
   end
 
-  it 'should fail min soma das dezenas' do
+  it 'fails min soma das dezenas' do
     @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 05")
     @palpite.analises
     expect(@palpite.teste_soma).not_to be(true)
   end
 
-  it 'should fail max soma das dezenas' do
+  it 'fails max soma das dezenas' do
     @palpite.update_attributes(dezenas: "0001 - 70 72 73 78 79")
     @palpite.analises
     expect(@palpite.teste_soma).not_to be(true)
   end
 
-  it 'should test min soma dos digitos' do
-
+  it 'tests min soma dos digitos' do
+    @palpite.update_attributes(dezenas: "0001 - 14 21 41 75 80")
+    @palpite.analises
+    expect(@palpite.teste_soma_dos_digitos).to be(true)
   end
 
-  it 'should test max soma dos digitos' do
+  it 'fails min soma dos digitos' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 11 12 20")
+    @palpite.analises
+    expect(@palpite.teste_soma_dos_digitos).not_to be(true)
+  end
 
+  it 'fails max soma dos digitos' do
+    @palpite.update_attributes(dezenas: "0001 - 74 77 78 79 80")
+    @palpite.analises
+    expect(@palpite.teste_soma_dos_digitos).not_to be(true)
   end
 
   it 'should test min pares' do
