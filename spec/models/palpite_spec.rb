@@ -9,7 +9,7 @@ describe Palpite do
   end
 
   it 'returns only numbers' do
-    expect(@palpite.dezenas_do_palpite).to eq([1,1,1,1,1])
+    expect(@palpite.dezenas_do_palpite).to eq([1,3,5,7,9])
   end
 
   it 'returns quantity of numbers' do
@@ -115,9 +115,24 @@ describe Palpite do
     expect(@palpite.teste_menos_sorteados).not_to be(true)
   end
 
-  it 'should test colunas cheias' do
-
+  it 'tests colunas cheias' do
+    @palpite.update_attributes(dezenas: "0001 - 01 11 21 31 41 51 61 71")
+    @palpite.analises
+    expect(@palpite.teste_colunas_cheias).to be(true)
   end
+
+  it 'fails min colunas cheias' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 75")
+    @palpite.analises
+    expect(@palpite.teste_colunas_cheias).not_to be(true)
+  end
+
+  it 'fails max colunas cheias' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 75")
+    @palpite.analises
+    expect(@palpite.teste_colunas_cheias).not_to be(true)
+  end
+
 
   it 'should test colunas vazias' do
 

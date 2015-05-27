@@ -71,6 +71,9 @@ class Palpite < ActiveRecord::Base
     if ( soma > self.parametros.min_soma && soma < self.parametros.max_soma ) || qtd_dezenas_do_palpite > self.parametros.qtd_min_dezenas
       self.teste_soma = true
       self.save
+    else
+      self.teste_soma = nil
+      self.save
     end
     "#{soma} - #{teste_soma}"
   end
@@ -89,6 +92,9 @@ class Palpite < ActiveRecord::Base
     if ( soma > self.parametros.min_soma_dos_digitos && soma < self.parametros.max_soma_dos_digitos ) || qtd_dezenas_do_palpite > self.parametros.qtd_min_dezenas
       self.teste_soma_dos_digitos = true
       self.save
+    else
+      self.teste_soma_dos_digitos = nil
+      self.save
     end
     "#{soma} - #{teste_soma_dos_digitos}"
   end
@@ -103,6 +109,9 @@ class Palpite < ActiveRecord::Base
     if ( total_pares >= self.parametros.min_pares && total_pares <= self.parametros.max_pares ) && ( total_impares >= self.parametros.min_impares && total_impares <= self.parametros.max_impares )
       self.teste_pares_impares = true
       self.save
+    else
+      self.teste_pares_impares = nil
+      self.save
     end
     "#{total_pares} / #{total_impares} - #{self.teste_pares_impares}"
   end
@@ -112,6 +121,9 @@ class Palpite < ActiveRecord::Base
     if qtd_mais_sorteados >= self.parametros.min_mais_sorteados && qtd_mais_sorteados <= self.parametros.max_mais_sorteados
       self.teste_mais_sorteados = true
       self.save
+    else
+      self.teste_mais_sorteados = nil
+      self.save
     end
     "#{qtd_mais_sorteados} - #{self.teste_mais_sorteados}"
   end
@@ -120,6 +132,9 @@ class Palpite < ActiveRecord::Base
     qtd_menos_sorteados =  qtd_dezenas_do_palpite - (self.dezenas_do_palpite - self.parametros.menos_sorteados).length
     if qtd_menos_sorteados >= self.parametros.min_menos_sorteados && qtd_menos_sorteados <= self.parametros.max_menos_sorteados
       self.teste_menos_sorteados = true
+      self.save
+    else
+      self.teste_menos_sorteados = nil
       self.save
     end
     "#{qtd_menos_sorteados} - #{self.teste_menos_sorteados}"
@@ -132,6 +147,9 @@ class Palpite < ActiveRecord::Base
     end
     if total_colunas_cheias >= self.parametros.min_colunas_cheias && total_colunas_cheias <= self.parametros.max_colunas_cheias
       self.teste_colunas_cheias = true
+      self.save
+    else
+      self.teste_colunas_cheias = nil
       self.save
     end
     "#{total_colunas_cheias} - #{self.teste_colunas_cheias}"
@@ -146,6 +164,9 @@ class Palpite < ActiveRecord::Base
     if total_colunas_vazias >= self.parametros.min_colunas_vazias && total_colunas_vazias <= self.parametros.max_colunas_vazias
       self.teste_colunas_vazias = true
       self.save
+    else
+      self.teste_colunas_vazias = nil
+      self.save
     end
     "#{total_colunas_vazias} - #{self.teste_colunas_vazias}"
   end
@@ -157,6 +178,9 @@ class Palpite < ActiveRecord::Base
     end
     if total_linhas_cheias >= self.parametros.min_linhas_cheias && total_linhas_cheias <= self.parametros.max_linhas_cheias
       self.teste_linhas_cheias = true
+      self.save
+    else
+      self.teste_linhas_cheias = nil
       self.save
     end
     "#{total_linhas_cheias} - #{self.teste_linhas_cheias}"
@@ -171,6 +195,9 @@ class Palpite < ActiveRecord::Base
     if total_linhas_vazias >= self.parametros.min_linhas_vazias && total_linhas_vazias <= self.parametros.max_linhas_vazias
       self.teste_linhas_vazias = true
       self.save
+    else
+      self.teste_linhas_vazias = nil
+      self.save
     end
     "#{total_linhas_vazias} - #{self.teste_linhas_vazias}"
   end
@@ -180,6 +207,9 @@ class Palpite < ActiveRecord::Base
     if qtd_fibonacci >= self.parametros.min_fibonacci && qtd_fibonacci <= self.parametros.max_fibonacci
       self.teste_fibonacci = true
       self.save
+    else
+      self.teste_fibonacci = nil
+      self.save
     end
     "#{qtd_fibonacci} - #{self.teste_fibonacci}"
   end
@@ -188,6 +218,9 @@ class Palpite < ActiveRecord::Base
     qtd_numeros_primos =  qtd_dezenas_do_palpite - (self.dezenas_do_palpite - self.parametros.numeros_primos).length
     if qtd_numeros_primos >= self.parametros.min_numeros_primos && qtd_numeros_primos <= self.parametros.max_numeros_primos
       self.teste_numeros_primos = true
+      self.save
+    else
+      self.teste_numeros_primos = nil
       self.save
     end
     "#{qtd_numeros_primos} - #{self.teste_numeros_primos}"
@@ -201,6 +234,8 @@ class Palpite < ActiveRecord::Base
     prev2 + 1 != prev        # two ago != one ago ? --> new slice
   }.to_a
     if filtro.any? { |x| x.length > self.parametros.max_numeros_consecutivos }
+      self.teste_numeros_consecutivos = nil
+      self.save
       "+ q #{self.parametros.max_numeros_consecutivos} em seq."
     else
       self.teste_numeros_consecutivos = true
@@ -218,6 +253,9 @@ class Palpite < ActiveRecord::Base
     if total_quadrantes_usados >= self.parametros.min_quadrantes
       self.teste_quadrantes = true
       self.save
+    else
+      self.teste_quadrantes = nil
+      self.save
     end
     "#{total_quadrantes_usados} - #{self.teste_quadrantes}"
   end
@@ -231,6 +269,8 @@ class Palpite < ActiveRecord::Base
       self.teste_multiplos = true
       self.save
     else
+      self.teste_multiplos = nil
+      self.save
       "+ que #{self.parametros.max_multiplos} * #{acusa_multiplo}" 
     end       
   end
@@ -246,6 +286,8 @@ class Palpite < ActiveRecord::Base
       self.teste_distancia = true
       self.save
     else
+      self.teste_distancia = nil
+      self.save
       "> que #{self.parametros.max_distancia}"
     end
   end
@@ -266,6 +308,8 @@ class Palpite < ActiveRecord::Base
       self.teste_intervalos = true
       self.save
     else
+      self.teste_intervalos = nil
+      self.save
       "#{dezena_invalida} <> #{self.parametros.intervalos[i].to_s.gsub('[',' ').gsub(']',' ').gsub(',','-')}"
     end
   end

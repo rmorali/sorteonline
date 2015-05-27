@@ -8,7 +8,7 @@ FactoryGirl.define do
     qtd_max_dezenas 7 
     min_soma 92 
     max_soma 310
-    min_soma_dos_digitos 20 
+    min_soma_dos_digitos 30 
     max_soma_dos_digitos 60 
     max_pares 6 
     min_pares 1 
@@ -19,9 +19,9 @@ FactoryGirl.define do
     min_menos_sorteados 1 
     max_menos_sorteados 2 
     min_colunas_cheias 0 
-    max_colunas_cheias 10 
-    min_linhas_cheias 0 
-    max_linhas_cheias 8 
+    max_colunas_cheias 0 
+    min_linhas_cheias 1 
+    max_linhas_cheias 2 
     min_colunas_vazias 0 
     max_colunas_vazias 7 
     min_linhas_vazias 0 
@@ -72,7 +72,7 @@ FactoryGirl.define do
 
   factory :palpite do
     association :bolao, factory: :bolao
-    dezenas '0001 - 01 01 01 01 01'
+    dezenas '0001 - 01 03 05 07 09'
   end
 
 end
