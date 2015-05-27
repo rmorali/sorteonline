@@ -97,12 +97,22 @@ describe Palpite do
     expect(@palpite.teste_mais_sorteados).not_to be(true)
   end
 
-  it 'should test min menos sorteados' do
-
+  it 'tests menos sorteados' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 75")
+    @palpite.analises
+    expect(@palpite.teste_menos_sorteados).to be(true)
   end
 
-  it 'should test max menos sorteados' do
+  it 'fails min menos sorteados' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 05")
+    @palpite.analises
+    expect(@palpite.teste_menos_sorteados).not_to be(true)
+  end
 
+  it 'fails max menos sorteados' do
+    @palpite.update_attributes(dezenas: "0001 - 01 02 75 76 77")
+    @palpite.analises
+    expect(@palpite.teste_menos_sorteados).not_to be(true)
   end
 
   it 'should test colunas cheias' do
