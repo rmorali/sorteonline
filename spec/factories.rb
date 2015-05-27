@@ -70,4 +70,9 @@ FactoryGirl.define do
     arquivo_file_name 'QN-Teste.txt'
   end
 
+  factory :palpite do
+    association :bolao, factory: :bolao
+    dezenas '0001 - 01 02 03 04 05'
+  end
+
 end

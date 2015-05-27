@@ -4,29 +4,31 @@ describe Palpite do
 
   it { belong_to :bolao }
 
-  before(:all) do
-    Palpite.all.each { |palpite| palpite.analises }
-    @palpite = Palpite.first
+  before(:each) do
+    @palpite = create(:palpite)
   end
 
   it 'should return only numbers' do
-    @palpite.dezenas_do_palpite.should == [14,21,41,75,80]
+    expect(@palpite.dezenas_do_palpite).to eq([1,2,3,4,5])
   end
 
   it 'should return quantity of numbers' do
-    @palpite.qtd_dezenas_do_palpite.should == 5
+    expect(@palpite.qtd_dezenas_do_palpite).to eq(5)
   end
 
   it 'should get parameters' do
-    @palpite.parametros.nome.should == 'Quina'
+    expect(@palpite.parametros.nome).to eq('Quina')
   end
 
   it 'should get score' do
-    @palpite.pontos.should == 100
+    @palpite.analises
+    expect(@palpite.pontos).to be > 0
   end
 
   it 'should test min soma das dezenas' do
-
+    @palpite.update_attributes(dezenas: "0001 - 01 02 03 04 05")
+    @palpite.analises
+    expect(@palpite.teste_soma).not_to be(true)
   end
 
   it 'should test max soma das dezenas' do
