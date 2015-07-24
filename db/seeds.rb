@@ -169,7 +169,7 @@ lotofacil = Loteria.create(
     max_digitos: 0,
     max_numeros_consecutivos: 10, 
     min_quadrantes: 2,
-    min_multiplos: 2 
+    min_multiplos: 2, 
     max_multiplos: 6,
     max_distancia: 6,
     intervalos: [[1,3],[1,5],[1,7],[1,9],[1,11],[7,13],[8,15],[10,16],[11,18],[13,19],[15,21],[17,22],[19,23],[21,25],[23,25],[23,25],[23,25],[23,25]],
