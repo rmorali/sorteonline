@@ -263,7 +263,7 @@ class Palpite < ActiveRecord::Base
   def analisa_multiplos
     acusa_multiplo = 0
     self.parametros.multiplos.each do |m|
-      acusa_multiplo = m if self.dezenas_do_palpite.find_all { |dezena| dezena % m == 0 }.length > self.parametros.max_multiplos
+      acusa_multiplo = m if self.dezenas_do_palpite.find_all { |dezena| dezena % m == 0 }.length > self.parametros.max_multiplos && self.dezenas_do_palpite.find_all { |dezena| dezena % m == 0 }.length < self.parametros.min_multiplos
     end
     if acusa_multiplo == 0
       self.teste_multiplos = true
@@ -271,7 +271,7 @@ class Palpite < ActiveRecord::Base
     else
       self.teste_multiplos = nil
       self.save
-      "+ que #{self.parametros.max_multiplos} * #{acusa_multiplo}" 
+      "* #{acusa_multiplo} < #{self.parametros.min_multiplos} ou > #{self.parametros.max_multiplos}" 
     end       
   end
 
