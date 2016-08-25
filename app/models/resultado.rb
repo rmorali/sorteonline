@@ -30,7 +30,7 @@ class Resultado < ActiveRecord::Base
 
   def importa_resultados
     self.arquivo_contents.each_line do |arquivo|
-      ResultadoPalpite.create(:resultado => self, :tipo => self.tipo, :dezenas => arquivo.delete("\n"))
+      ResultadoPalpite.create(:resultado => self, :dezenas => arquivo.delete("\n"))
     end
   end
 

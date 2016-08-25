@@ -39,6 +39,7 @@ class Palpite < ActiveRecord::Base
     self.analisa_distancia
     self.analisa_intervalos
     self.analisa_pontuacao
+    self.analisa_anteriores
   end
 
   def analisa_pontuacao
@@ -312,6 +313,35 @@ class Palpite < ActiveRecord::Base
       self.save
       "#{dezena_invalida} <> #{self.parametros.intervalos[i].to_s.gsub('[',' ').gsub(']',' ').gsub(',','-')}"
     end
+  end
+
+  def analisa_anteriores
+    resultado = Resultado.select { |resultado| resultado.tipo == self.bolao.tipo }
+      premio_principal = 0
+      premio_faixa_1 = 0
+      premio_faixa_2 = 0
+      faixa_principal = self.parametros.qtd_dezenas
+      faixa_1 = self.parametros.qtd_dezenas - 1
+      faixa_2 = self.parametros.qtd_dezenas - 2
+
+    resultado.first.resultado_palpites.each do |r|
+      teste = self.dezenas_do_palpite - r.dezenas_do_resultado
+      encontrados = self.parametros.qtd_dezenas - teste.length
+
+      case encontrados
+        when faixa_principal
+          premio_principal += 1
+        when faixa_1
+          premio_faixa_1 += 1
+        when faixa_2
+          premio_faixa_2 += 1
+      end
+      self.teste_premio_principal = premio_principal
+      self.teste_premio_faixa1 = premio_faixa_1
+      self.teste_premio_faixa2 = premio_faixa_2
+      self.save
+    end
+    "#{self.teste_premio_principal} / #{self.teste_premio_faixa1} / #{self.teste_premio_faixa2}"
   end
 
 end
