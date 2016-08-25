@@ -74,11 +74,14 @@ Aposta - 01 02 03 04 05 ...</th>
     <td><%= palpite.teste_intervalos %></td>
     <td><%= palpite.pontos %></td>
     <td>
-    <% if palpite.teste_premio_faixa1 %>
+    <% if palpite.teste_premio_faixa2 > 0 %>
+      <span style="color: blue;font-weight: bold">
+    <% end %>
+    <% if palpite.teste_premio_faixa1 > 0 %>
       <span style="color: green;font-weight: bold">
     <% end %>
-    <% if palpite.teste_premio_principal %>
-      <span style="color: red;font-weight: bold">
+    <% if palpite.teste_premio_principal > 0 %>
+      <span style="color: red;font-weight: bold;font-size: 125%" >
     <% end %>
         <%= palpite.teste_premio_principal %> / 
         <%= palpite.teste_premio_faixa1 %> / 

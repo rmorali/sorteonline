@@ -2,7 +2,7 @@
 <%= simple_form_for @resultado, :html => { :multipart => true } do |f| %>
   <tr><th><%= f.input :arquivo, as: :file %><br>
 Envie arquivo .txt no formato:
-Aposta N. - 01 02 03 04 05...</th>
+Aposta - 01 02 03 04 05...</th>
   <th><%= f.submit 'Upload' %></th>
   <th><a href = "/zera_bd_resultados">Zerar o BD de resultados</a></th></tr>
 <% end %>

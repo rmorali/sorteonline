@@ -11,7 +11,7 @@ quina = Loteria.create(
     sigla: 'QN', 
     qtd_dezenas: 80,
     qtd_min_dezenas: 5, 
-    qtd_max_dezenas: 7, 
+    qtd_max_dezenas: 8, 
     min_soma: 92, 
     max_soma: 310,
     min_soma_dos_digitos: 20, 

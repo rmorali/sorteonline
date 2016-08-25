@@ -5,7 +5,7 @@ class Palpite < ActiveRecord::Base
 
   def dezenas_do_palpite
     numeros = []
-    self.dezenas.split(' ', self.parametros.qtd_max_dezenas + 2).each do |dezena|
+    self.dezenas.split(' ').each do |dezena|
       numeros << dezena.to_i
     end
     2.times { numeros.delete_at(0) }
@@ -320,13 +320,13 @@ class Palpite < ActiveRecord::Base
       premio_principal = 0
       premio_faixa_1 = 0
       premio_faixa_2 = 0
-      faixa_principal = self.parametros.qtd_dezenas
-      faixa_1 = self.parametros.qtd_dezenas - 1
-      faixa_2 = self.parametros.qtd_dezenas - 2
+      faixa_principal = self.parametros.qtd_min_dezenas
+      faixa_1 = self.parametros.qtd_min_dezenas - 1
+      faixa_2 = self.parametros.qtd_min_dezenas - 2
 
     resultado.first.resultado_palpites.each do |r|
       teste = self.dezenas_do_palpite - r.dezenas_do_resultado
-      encontrados = self.parametros.qtd_dezenas - teste.length
+      encontrados = self.dezenas_do_palpite.length - teste.length
 
       case encontrados
         when faixa_principal
