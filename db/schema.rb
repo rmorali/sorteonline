@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518191238) do
+ActiveRecord::Schema.define(version: 20160825172754) do
 
   create_table "bolaos", force: :cascade do |t|
     t.string   "arquivo_file_name"
@@ -88,6 +88,20 @@ ActiveRecord::Schema.define(version: 20150518191238) do
     t.boolean "teste_distancia"
     t.boolean "teste_intervalos"
     t.boolean "teste_soma_dos_digitos"
+  end
+
+  create_table "resultado_palpites", force: :cascade do |t|
+    t.integer "resultado_id"
+    t.string  "dezenas"
+  end
+
+  create_table "resultados", force: :cascade do |t|
+    t.string   "tipo"
+    t.string   "dezenas"
+    t.string   "arquivo_file_name"
+    t.string   "arquivo_content_type"
+    t.integer  "arquivo_file_size"
+    t.datetime "arquivo_updated_at"
   end
 
 end

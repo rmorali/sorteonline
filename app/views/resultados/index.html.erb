@@ -1,0 +1,17 @@
+<table>
+<%= simple_form_for @resultado, :html => { :multipart => true } do |f| %>
+  <tr><th><%= f.input :arquivo, as: :file %></th>
+  <th><%= f.submit 'Upload' %></th>
+  <th><a href = "/zera_bd_resultados">Zerar o BD de resultados</a></th></tr>
+<% end %>
+</table>
+
+<% @resultados.each do |resultado| %>
+  <table>
+    <tr><th><%= resultado.nome %></tr>
+    <% resultado.dezenas.each do |dezena| %>
+        <tr><td><%= dezena.dezenas %></td></tr>
+    <% end %>
+<% end %>
+  </table>
+

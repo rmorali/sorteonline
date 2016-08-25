@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   resources :loterias
 
+  resources :resultados
+
   get 'zera_bd' => 'bolaos#zera'
+  get 'zera_bd_resultados' => 'resultados#zera'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
