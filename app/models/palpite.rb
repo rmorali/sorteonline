@@ -8,7 +8,7 @@ class Palpite < ActiveRecord::Base
     self.dezenas.split(' ').each do |dezena|
       numeros << dezena.to_i
     end
-    #2.times { numeros.delete_at(0) }
+    2.times { numeros.delete_at(0) }
     numeros.delete(0)
     numeros.sort
   end
