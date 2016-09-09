@@ -1,4 +1,5 @@
 class Palpite < ActiveRecord::Base
+  default_scope :order => "teste_premio_principal DESC, teste_premio_faixa1 DESC, teste_premio_faixa2 DESC"
   belongs_to :bolao
 
   after_create :analises
